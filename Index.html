@@ -1,1075 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hayder Sabah | IT Specialist</title>
-    <link rel="icon" href="img/icon.png" type="image/png">
-
-    <!-- Bootstrap CSS -->
+    <title>Hayder Sabah | Portfolio</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <!-- Before closing body tag -->
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <!--<style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
-            scroll-behavior: smooth;
-        }
-
-        .dark-mode {
-            background-color: #121212;
-            color: #f8f9fa;
-        }
-
-        .navbar-dark-mode {
-            background-color: #1f1f1f !important;
-        }
-
-        .blurred-text {
-            font-weight: 600;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%,100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .card-hover {
-            transform: translateY(0);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-            .card-hover:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            }
-
-        .section-title {
-            font-weight: 700;
-            color: #0d6efd;
-            margin-bottom: 1rem;
-        }
-
-
-
-        img.water-blot {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            clip-path: polygon(50% 0%, 85% 10%, 100% 35%, 90% 65%, 60% 100%, 30% 90%, 10% 60%, 0% 30%);
-        }
-
-        .scroll-wrapper {
-            overflow-x: auto;
-            white-space: nowrap;
-            padding-bottom: 10px;
-        }
-
-            .scroll-wrapper::-webkit-scrollbar {
-                height: 8px;
-            }
-
-            .scroll-wrapper::-webkit-scrollbar-thumb {
-                background: rgba(100,100,100,0.3);
-                border-radius: 8px;
-            }
-    </style>-->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top p-3" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.5); transition:0.3s;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Hayder Sabah</a>
-            <button class="btn btn-outline-secondary me-2" id="themeToggle"><i class="bi bi-moon"></i></button>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand" href="#hero"><span class="dot"></span> Hayder Sabah</a>
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn" id="themeToggle" aria-label="Toggle theme"><i class="bi bi-moon"></i></button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-3">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#quiz">Linux Quiz</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#search">Search</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#about">نبذة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">المهارات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">الأعمال</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">الشهادات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">تحديات تفاعلية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#search">خرائط</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">تواصل</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!--<style>
-        /* Navbar Link Effects */
-        .navbar-nav .nav-link {
-            position: relative;
-            font-weight: 500;
-            color: #212529;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-            .navbar-nav .nav-link::after {
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: -3px;
-                width: 0%;
-                height: 2px;
-                background-color: #0d6efd;
-                transition: width 0.3s;
-            }
-
-            .navbar-nav .nav-link:hover,
-            .navbar-nav .nav-link:focus {
-                color: #0d6efd;
-                transform: translateY(-2px);
-            }
-
-                .navbar-nav .nav-link:hover::after,
-                .navbar-nav .nav-link:focus::after {
-                    width: 100%;
-                }
-
-        /* Transparent navbar with blur */
-        nav.navbar {
-            background-color: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Navbar brand hover */
-        .navbar-brand {
-            transition: transform 0.3s;
-        }
-
-            .navbar-brand:hover {
-                transform: scale(1.05);
-            }
-
-        /* Adjust toggler icon for transparent background */
-        .navbar-toggler-icon {
-            filter: invert(0.1);
-        }
-    </style>-->
     <!-- Hero Section -->
-    <section id="hero" style="height:100vh;" class="d-flex align-items-center">
-        <div class="container d-flex flex-wrap justify-content-center align-items-center gap-5">
-            <div class="text-center">
-                <img src="me.jpg" class="water-blot shadow" alt="Hayder Sabah">
-            </div>
-            <div class="text-start" style="max-width:600px;">
-                <h1 class="fw-bold">Hi, I'm Hayder Sabah</h1>
-                <p class="fs-4 text-primary" id="typed-text"></p>
-                <p>I build and maintain secure, resilient systems — from Linux servers and networks to web apps and automation tools. With expertise in Networking, Security, Python, and Web Development, I create reliable solutions that meet both technical and business needs. I am passionate about continuous learning and exploring new IT technologies, ensuring professional and scalable solutions.</p>
-                <a href="Mycv.pdf" class="btn btn-primary me-2"><i class="bi bi-download"></i> Download CV</a>
-                <a href="mailto:haider2alatare@gmail.com" class="btn btn-outline-primary"><i class="bi bi-envelope"></i> Contact</a>
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="inner">
+                <div class="hero-card text-end">
+                    <h1>مرحبا، أنا <span>حيدر صباح</span></h1>
+                    <p class="fs-4 text-primary" id="typed-text"></p>
+                    <p class="intro">مبرمج، مهندس شبكات، ومختص أمن سيبراني أقدم حلول كاملة من البنية التحتية حتى الواجهات الأمامية. هذه الصفحة تغنيك عن أي CV تقليدي: تكتشف خبراتي، تتفاعل مع مشاريعي، وتجرب مهاراتي الحية.</p>
+                    <div class="meta">
+                        <span class="pill"><i class="bi bi-rocket-takeoff"></i> 20+ مشروع متكامل</span>
+                        <span class="pill"><i class="bi bi-shield-lock"></i> أمن شبكات وأنظمة</span>
+                        <span class="pill"><i class="bi bi-translate"></i> عربي • English</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge">Full-stack</span>
+                        <span class="badge">Cloud & Docker</span>
+                        <span class="badge">AI & Data</span>
+                        <span class="badge">Automation</span>
+                    </div>
+                    <div class="cta-group">
+                        <a href="Mycv.pdf" class="btn-glow"><i class="bi bi-download"></i> تنزيل CV</a>
+                        <a href="mailto:haider2alatare@gmail.com" class="btn-ghost"><i class="bi bi-envelope"></i> تواصل مباشر</a>
+                    </div>
+                </div>
+                <div class="profile-blob">
+                    <div class="ink-backdrop"></div>
+                    <div class="shape">
+                        <img src="me.jpg" alt="Hayder Sabah portrait">
+                        <span class="ink-highlight"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" style="min-height:100vh;" class="container d-flex flex-column justify-content-center">
-        <h2 class="section-title text-center mb-4">About & Experience</h2>
-        <div class="row g-4 justify-content-center text-center">
-
-            <!-- Card 1 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-briefcase-fill card-icon" style="color:#4caf50;"></i>
-                    <h5 class="card-title mt-2">Experience</h5>
-                    <p class="card-description">System Admin • 2+ yrs managing Linux servers, networks, and IT projects.</p>
+    <!-- About & Experience -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">خلاصة الخبرة</h2>
+            <p class="section-subtitle">إدارة أنظمة لينكس وشبكات سيسكو، تطوير ويب كامل، وأمن سيبراني عملي. أستمتع بتصميم حلول معقدة مع تجربة مستخدم أنيقة.</p>
+            <div class="grid-3 mt-4">
+                <div class="card-glass text-end">
+                    <div class="icon-circle"><i class="bi bi-cpu"></i></div>
+                    <h5>حلول بنية تحتية ذكية</h5>
+                    <p>أدير خوادم، حاويات، وشبكات بموثوقية عالية مع أتمتة CI/CD ومرونة سحابية.</p>
+                </div>
+                <div class="card-glass text-end">
+                    <div class="icon-circle"><i class="bi bi-braces"></i></div>
+                    <h5>برمجة متعددة اللغات</h5>
+                    <p>Python، C++، C#، وJavaScript لبرمجيات قوية، APIs آمنة، وأدوات اختراق أخلاقي.</p>
+                </div>
+                <div class="card-glass text-end">
+                    <div class="icon-circle"><i class="bi bi-people"></i></div>
+                    <h5>قيادة ومشاركة</h5>
+                    <p>إشراف فرق ناشئة، مراجعة كود، وإلقاء ورش تدريب في الأمن والشبكات.</p>
                 </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-tools card-icon" style="color:#2196f3;"></i>
-                    <h5 class="card-title mt-2">Skills</h5>
-                    <p class="card-description">Linux, Networking, Python, Ethical Hacking, Docker, Git, Cloud, Web Development, Security</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-mortarboard-fill card-icon" style="color:#f44336;"></i>
-                    <h5 class="card-title mt-2">Education</h5>
-                    <p class="card-description">UOITC • BSc IT (2025)</p>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-translate card-icon" style="color:#ff9800;"></i>
-                    <h5 class="card-title mt-2">Languages</h5>
-                    <p class="card-description">Arabic, English, German (basic)</p>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-award-fill card-icon" style="color:#9c27b0;"></i>
-                    <h5 class="card-title mt-2">Certificates</h5>
-                    <p class="card-description">Cisco CCNA 1-3, ML for Software Engineers, Ethical Hacking (Kali)</p>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-lightbulb-fill card-icon" style="color:#00bcd4;"></i>
-                    <h5 class="card-title mt-2">Achievements</h5>
-                    <p class="card-description">Led successful IT projects, optimized networks, implemented security solutions.</p>
-                </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-people-fill card-icon" style="color:#e91e63;"></i>
-                    <h5 class="card-title mt-2">Teamwork</h5>
-                    <p class="card-description">Collaborated with cross-functional teams to deliver IT solutions efficiently.</p>
-                </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card about-card card-hover p-4">
-                    <i class="bi bi-graph-up-arrow card-icon" style="color:#8bc34a;"></i>
-                    <h5 class="card-title mt-2">Leadership</h5>
-                    <p class="card-description">Guided junior IT staff and interns, managing projects and technical growth.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!--<style>
-        .about-card {
-            width: 100%;
-            min-height: 200px;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            background: #fff;
-            padding: 20px;
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .card-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .card-description {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: opacity 0.3s ease, max-height 0.3s ease;
-            font-size: 0.9rem;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* Hover effect without affecting other cards */
-        .about-card:hover {
-            transform: scale(1.05);
-            border-color: #0d6efd;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-            .about-card:hover .card-description {
-                opacity: 1;
-                max-height: 120px;
-            }
-
-            .about-card:hover .card-icon {
-                transform: scale(1.2);
-            }
-
-            .about-card:hover .card-title {
-                transform: scale(1.1);
-            }
-    </style>-->
-    <!-- Skills Section -->
-    <section id="skills" style="min-height:100vh;" class="container d-flex flex-column justify-content-center">
-        <h2 class="section-title text-center mb-4">Skills</h2>
-        <div class="row g-4 justify-content-center text-center">
-
-            <!-- Skill 1 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-terminal-fill skill-icon" style="color:#4caf50;"></i>
-                    <h5 class="skill-title">Linux Administration</h5>
-                    <p class="skill-description">Manage servers, automation, shell scripting, and system monitoring.</p>
+    <!-- Challenges Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">تحديات متنوعة</h2>
+            <p class="section-subtitle">مجموعة تحديات حقيقية تجمع الأمن، الذكاء الاصطناعي، الويب، الشبكات، وأنظمة التشغيل. كل تحدٍ تعليمي ويمنحك تقييماً فورياً حتى عند الخطأ.</p>
+            <div class="challenge-grid mt-4">
+                <div class="challenge-card text-end">
+                    <strong>Cyber Range</strong>
+                    <span>تحليل ثغرات، كتابة تقارير احترافية، وبناء Playbooks دفاعية.</span>
+                </div>
+                <div class="challenge-card text-end">
+                    <strong>AI Lab</strong>
+                    <span>نماذج تصنيف صور وطبيعة لغوية، تحسين الأداء، ونشر على السحابة.</span>
+                </div>
+                <div class="challenge-card text-end">
+                    <strong>Full-Stack Sprint</strong>
+                    <span>تصميم تجربة مستخدم، REST APIs آمنة، وواجهات React/Bootstrap متجاوبة.</span>
+                </div>
+                <div class="challenge-card text-end">
+                    <strong>Network War Room</strong>
+                    <span>بناء مختبر سيسكو، ضبط VLANs، وHardening متقدم للجدران النارية.</span>
+                </div>
+                <div class="challenge-card text-end">
+                    <strong>Automation Arena</strong>
+                    <span>سكربتات Bash وPython للنسخ الاحتياطي والمراقبة الذكية وتكامل DevOps.</span>
+                </div>
+                <div class="challenge-card text-end">
+                    <strong>Data & BI</strong>
+                    <span>لوحات Power BI وDashboards مخصصة لقياس الأداء التقني والعمليات.</span>
+                </div>
+                <div class="challenge-card text-end">
+                    <strong>Linux & OS</strong>
+                    <span>تحديات أوامر وسيناريوهات مصغرة مع شرح فوري للأخطاء لتثبيت المعلومة.</span>
+                </div>
+                <div class="challenge-card text-end">
+                    <strong>Web Security</strong>
+                    <span>Cross-Site Scripting، CSRF، وحماية المصادقة مع أمثلة تطبيقية.</span>
                 </div>
             </div>
-
-            <!-- Skill 2 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-diagram-3-fill skill-icon" style="color:#2196f3;"></i>
-                    <h5 class="skill-title">Networking (Cisco)</h5>
-                    <p class="skill-description">Routing, switching, VLANs, basic Cisco configurations.</p>
-                </div>
-            </div>
-
-            <!-- Skill 3 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-code-slash skill-icon" style="color:#f44336;"></i>
-                    <h5 class="skill-title">Python, C++, C#</h5>
-                    <p class="skill-description">Software development, scripting, automation, backend logic.</p>
-                </div>
-            </div>
-
-            <!-- Skill 4 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-shield-lock-fill skill-icon" style="color:#ff9800;"></i>
-                    <h5 class="skill-title">Ethical Hacking</h5>
-                    <p class="skill-description">Penetration testing, Kali Linux, vulnerability assessments.</p>
-                </div>
-            </div>
-
-            <!-- Skill 5 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-layout-text-sidebar-reverse skill-icon" style="color:#9c27b0;"></i>
-                    <h5 class="skill-title">Web Development</h5>
-                    <p class="skill-description">HTML, CSS, JavaScript, front-end frameworks, responsive design.</p>
-                </div>
-            </div>
-
-            <!-- Skill 6 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-cloud-fill skill-icon" style="color:#00bcd4;"></i>
-                    <h5 class="skill-title">Docker & Cloud</h5>
-                    <p class="skill-description">Containerization, cloud deployment, basic DevOps workflows.</p>
-                </div>
-            </div>
-
-            <!-- Skill 7 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-git skill-icon" style="color:#e91e63;"></i>
-                    <h5 class="skill-title">Git & Version Control</h5>
-                    <p class="skill-description">Branching, merging, repository management, collaboration.</p>
-                </div>
-            </div>
-
-            <!-- Skill 8 -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card skill-card card-hover">
-                    <i class="bi bi-shield-fill-check skill-icon" style="color:#8bc34a;"></i>
-                    <h5 class="skill-title">Cyber Security</h5>
-                    <p class="skill-description">Network security, threat analysis, and risk mitigation.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!--<style>
-        .skill-card {
-            width: 100%;
-            min-height: 200px;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            background: #fff;
-            padding: 20px;
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-description {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: opacity 0.3s ease, max-height 0.3s ease;
-            font-size: 0.9rem;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* Hover effect without affecting other cards */
-        .skill-card:hover {
-            transform: scale(1.05);
-            border-color: #0d6efd;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-            .skill-card:hover .skill-description {
-                opacity: 1;
-                max-height: 100px;
-            }
-
-            .skill-card:hover .skill-icon {
-                transform: scale(1.2);
-            }
-
-            .skill-card:hover .skill-title {
-                transform: scale(1.1);
-            }
-    </style>-->
     <!-- Projects Section -->
-    <section id="projects" style="min-height:100vh;" class="container d-flex flex-column justify-content-center">
-        <h2 class="section-title text-center mb-4">Projects</h2>
-
-        <div class="scroll-wrapper d-flex gap-3 px-2 py-2">
-
-            <!-- Project 1 -->
-            <div class="card project-card card-hover d-flex flex-row">
-                <img src="smart-home.jpg" class="project-img" alt="Smart Home">
-                <div class="card-body d-flex flex-column justify-content-center">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-house-door-fill me-2" style="color:#0d6efd;"></i>
-                        <h5 class="card-title mb-0">Smart Home IoT</h5>
+    <section id="projects">
+        <div class="container position-relative project-carousel">
+            <h2 class="section-title">مشاريع مختارة</h2>
+            <p class="section-subtitle">من الأدوات الأمنية إلى الأنظمة الذكية؛ كل مشروع مصمم كحالة استخدام متكاملة مع توثيق كامل.</p>
+            <div class="project-nav left">
+                <button id="scrollLeft" aria-label="Scroll left"><i class="bi bi-arrow-right"></i></button>
+            </div>
+            <div class="project-nav right">
+                <button id="scrollRight" aria-label="Scroll right"><i class="bi bi-arrow-left"></i></button>
+            </div>
+            <div class="scroll-wrapper mt-3">
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="smart-home.jpg" class="project-img" alt="Smart Home">
+                        <div class="project-overlay">منصة تحكم منزلية مع مراقبة لحظية وإنذارات.</div>
                     </div>
-                    <p class="card-text">Integrated smart home solution with automated devices and remote control, using IoT sensors and Raspberry Pi controllers. Fully managed from web interface.</p>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-house-door-fill text-primary"></i> Smart Home IoT</h5>
+                        <p>لوحة تحكم تعتمد على Raspberry Pi مع تنبيهات أمنية، سيناريوهات أتمتة، ورسوم بيانية حية لتتبع الطاقة.</p>
+                    </div>
+                </div>
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="Tumor-Classification.jpg" class="project-img" alt="AI Tumor Classification">
+                        <div class="project-overlay">نماذج تشخيص مدعومة بالذكاء الاصطناعي.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-heart-pulse-fill text-danger"></i> AI Tumor Classification</h5>
+                        <p>نموذج تعلم عميق لدعم التشخيص الطبي بدقة عالية، مع واجهة تقارير تفاعلية، توثيق Dataset، وPipeline جاهز للإنتاج.</p>
+                    </div>
+                </div>
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="Phone-Farm.jpg" class="project-img" alt="Phone Farm Automation">
+                        <div class="project-overlay">أتمتة كاملة لأسطول أجهزة متنقلة.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-phone-fill text-success"></i> Phone Farm Automation</h5>
+                        <p>إدارة مزارع أجهزة محمولة بواجهة مراقبة، Scripts أتمتة، وتنبيهات أداء في الوقت الفعلي مع مراقبة حرارة واستهلاك بيانات.</p>
+                    </div>
+                </div>
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="Web-Tools.jpg" class="project-img" alt="Web Tools">
+                        <div class="project-overlay">أدوات ويب وأمن بواجهات موحدة.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-window-stack text-warning"></i> Web & Security Tools</h5>
+                        <p>مجموعة أدوات ويب وأمن سيبراني بواجهات رسومية نظيفة، سياسات CORS مصممة، وعمليات تسجيل ومراقبة مركزة.</p>
+                    </div>
+                </div>
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="AI-Bot.jpg" class="project-img" alt="AI Bot">
+                        <div class="project-overlay">مساعدات ذكية مع حماية ضد الحقن.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-cpu-fill text-info"></i> AI Assistants</h5>
+                        <p>بوتات ذكاء اصطناعي للمحادثة والدعم التقني مع تكامل APIs وخط دفاع أمني ضد الحقن، ولوحة مراقبة لسجلات التفاعلات.</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- Project 2 -->
-            <div class="card project-card card-hover d-flex flex-row">
-                <img src="Tumor-Classification.jpg" class="project-img" alt="AI Tumor Classification">
-                <div class="card-body d-flex flex-column justify-content-center">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-heart-pulse-fill me-2" style="color:#dc3545;"></i>
-                        <h5 class="card-title mb-0">AI Tumor Classification</h5>
-                    </div>
-                    <p class="card-text">Deep learning model for image classification, achieving high accuracy in medical image detection, built with Python and TensorFlow.</p>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="card project-card card-hover d-flex flex-row">
-                <img src="Phone-Farm.jpg" class="project-img" alt="Phone Farm Automation">
-                <div class="card-body d-flex flex-column justify-content-center">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-phone-fill me-2" style="color:#28a745;"></i>
-                        <h5 class="card-title mb-0">Phone Farm Automation</h5>
-                    </div>
-                    <p class="card-text">Custom management of large device arrays for parallel mobile app testing and automation workflows. Includes monitoring dashboard.</p>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="card project-card card-hover d-flex flex-row">
-                <img src="Web-Tools.jpg" class="project-img" alt="Web & Tools">
-                <div class="card-body d-flex flex-column justify-content-center">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-window-stack me-2" style="color:#fd7e14;"></i>
-                        <h5 class="card-title mb-0">Web & Tools</h5>
-                    </div>
-                    <p class="card-text">Various web apps, admin tools, and security utilities built with Python, JavaScript, and C#. Clean, modular, and secure design.</p>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="card project-card card-hover d-flex flex-row">
-                <img src="AI-Bot.jpg" class="project-img" alt="AI Bot">
-                <div class="card-body d-flex flex-column justify-content-center">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-robot me-2" style="color:#6f42c1;"></i>
-                        <h5 class="card-title mb-0">AI Bot</h5>
-                    </div>
-                    <p class="card-text">Chatbot powered by AI for customer support automation. Built with Python and NLP models to understand user queries and respond intelligently.</p>
-                </div>
-            </div>
-
-            <!-- Project 6 -->
-            <div class="card project-card card-hover d-flex flex-row">
-                <img src="Cyber-Security.jpg" class="project-img" alt="Cyber Security Suite">
-                <div class="card-body d-flex flex-column justify-content-center">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-shield-fill-check me-2" style="color:#20c997;"></i>
-                        <h5 class="card-title mb-0">Cyber Security Suite</h5>
-                    </div>
-                    <p class="card-text">Collection of tools for vulnerability scanning, penetration testing, and security monitoring. Designed to secure web apps and networks efficiently.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Navigation Buttons -->
-        <div class="d-flex justify-content-between mt-3">
-            <button class="btn btn-primary" id="scrollLeft"><i class="bi bi-chevron-left"></i></button>
-            <button class="btn btn-primary" id="scrollRight"><i class="bi bi-chevron-right"></i></button>
         </div>
     </section>
 
-    <!--<style>
-        .scroll-wrapper {
-            overflow-x: auto;
-            white-space: nowrap;
-            scroll-behavior: smooth;
-            padding-bottom: 10px;
-            cursor: grab;
-        }
-
-            .scroll-wrapper::-webkit-scrollbar {
-                height: 8px;
-            }
-
-            .scroll-wrapper::-webkit-scrollbar-thumb {
-                background: rgba(100,100,100,0.3);
-                border-radius: 8px;
-            }
-
-        .project-card {
-            display: inline-flex;
-            width: 900px;
-            height: 450px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #ddd;
-            margin-right: 15px;
-            background: #fff;
-            flex-shrink: 0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-img {
-            width: 45%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-body {
-            width: 55%;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow: hidden; /* prevent overflow */
-            word-wrap: break-word; /* wrap long words */
-            word-break: break-word; /* ensure long words wrap */
-            white-space: normal; /* important to allow text wrapping */
-        }
-
-
-        .card-hover:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-    </style>-->
-    <!--<script>
-        const scrollContainer = document.querySelector('.scroll-wrapper');
-        const scrollLeftBtn = document.getElementById('scrollLeft');
-        const scrollRightBtn = document.getElementById('scrollRight');
-
-        // Scroll on button click
-        scrollLeftBtn.addEventListener('click', () => {
-            scrollContainer.scrollBy({ left: -920, behavior: 'smooth' });
-        });
-        scrollRightBtn.addEventListener('click', () => {
-            scrollContainer.scrollBy({ left: 920, behavior: 'smooth' });
-        });
-
-        // Drag to scroll
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        scrollContainer.addEventListener('mousedown', (e) => {
-            isDown = true;
-            scrollContainer.classList.add('active');
-            startX = e.pageX - scrollContainer.offsetLeft;
-            scrollLeft = scrollContainer.scrollLeft;
-        });
-        scrollContainer.addEventListener('mouseleave', () => {
-            isDown = false;
-            scrollContainer.classList.remove('active');
-        });
-        scrollContainer.addEventListener('mouseup', () => {
-            isDown = false;
-            scrollContainer.classList.remove('active');
-        });
-        scrollContainer.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - scrollContainer.offsetLeft;
-            const walk = (x - startX) * 1; //scroll-fast
-            scrollContainer.scrollLeft = scrollLeft - walk;
-        });
-    </script>-->
     <!-- Certificates Section -->
-    <section id="certificates" style="min-height:100vh;" class="container d-flex flex-column justify-content-center">
-        <h2 class="section-title text-center mb-4">Certificates</h2>
-
-        <div class="row g-4 justify-content-center">
-
-            <!-- Certificate 1 -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card cert-card text-center card-hover p-3">
-                    <i class="bi bi-diagram-3-fill mb-2" style="font-size:2rem; color:#0d6efd;"></i>
-                    <h5 class="card-title">CCNA 1</h5>
-                    <p class="card-text">Basic Networking – Cisco Networking Academy</p>
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">شهادات واعتمادات</h2>
+            <p class="section-subtitle">مسارات مهنية موثقة في الشبكات، الأمن، والذكاء الاصطناعي.</p>
+            <div class="cert-grid mt-4">
+                <div class="cert-card text-end">
+                    <i class="bi bi-diagram-3 text-primary" style="font-size: 1.8rem;"></i>
+                    <h5>CCNA 1-3</h5>
+                    <p>تصميم شبكات، ضبط VLANs، وحلول WAN متقدمة.</p>
+                </div>
+                <div class="cert-card text-end">
+                    <i class="bi bi-mortarboard text-success" style="font-size: 1.8rem;"></i>
+                    <h5>Machine Learning</h5>
+                    <p>ML for Software Engineers مع مشاريع تصنيف وتنبؤ فعلية.</p>
+                </div>
+                <div class="cert-card text-end">
+                    <i class="bi bi-shield-lock text-danger" style="font-size: 1.8rem;"></i>
+                    <h5>Ethical Hacking</h5>
+                    <p>اختبار اختراق باستخدام Kali، تقارير CVSS، وإجراءات Mitre ATT&CK.</p>
+                </div>
+                <div class="cert-card text-end">
+                    <i class="bi bi-cloud-check text-info" style="font-size: 1.8rem;"></i>
+                    <h5>Cloud & Docker</h5>
+                    <p>نشر حاويات، CI/CD، ومراقبة Observability لتطبيقات الإنتاج.</p>
                 </div>
             </div>
-
-            <!-- Certificate 2 -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card cert-card text-center card-hover p-3">
-                    <i class="bi bi-hdd-network-fill mb-2" style="font-size:2rem; color:#0d6efd;"></i>
-                    <h5 class="card-title">CCNA 2</h5>
-                    <p class="card-text">Switching Essentials – Cisco Networking Academy</p>
-                </div>
-            </div>
-
-            <!-- Certificate 3 -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card cert-card text-center card-hover p-3">
-                    <i class="bi bi-router-fill mb-2" style="font-size:2rem; color:#0d6efd;"></i>
-                    <h5 class="card-title">CCNA 3</h5>
-                    <p class="card-text">Routing & Advanced Concepts – Cisco Networking Academy</p>
-                </div>
-            </div>
-
-            <!-- Certificate 4 -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card cert-card text-center card-hover p-3">
-                    <i class="bi bi-cpu-fill mb-2" style="font-size:2rem; color:#6f42c1;"></i>
-                    <h5 class="card-title">ML for Software Engineers</h5>
-                    <p class="card-text">Machine Learning concepts applied to software development</p>
-                </div>
-            </div>
-
-            <!-- Certificate 5 -->
-            <div class="col-md-3 col-sm-6">
-                <div class="card cert-card text-center card-hover p-3">
-                    <i class="bi bi-shield-fill-check mb-2" style="font-size:2rem; color:#20c997;"></i>
-                    <h5 class="card-title">Ethical Hacking</h5>
-                    <p class="card-text">Kali Linux – Penetration Testing & Security Analysis</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!--<style>
-        .cert-card {
-            min-height: 270px;
-            border-radius: 12px;
-            border: 2px solid #ddd;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: #fff;
-        }
-
-            .cert-card:hover {
-                transform: translateY(-5px) scale(1.03);
-                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            }
-
-        .card-text {
-            font-size: 0.9rem;
-        }
-    </style>-->
     <!-- Linux Quiz Section -->
-    <section id="quiz" style="min-height:100vh;" class="container d-flex flex-column justify-content-center">
-        <h2 class="section-title text-center mb-4">Linux Terminal Quiz</h2>
-
-        <div class="terminal-window mx-auto card-hover p-0" style="max-width:900px; width:90%; position:relative;">
-            <!-- Fake window buttons -->
-            <div class="window-header d-flex align-items-center p-2" style="background:#222; border-bottom:2px solid #444;">
-                <div class="window-btn me-2 bg-danger"></div>
-                <div class="window-btn me-2 bg-warning"></div>
-                <div class="window-btn bg-success"></div>
-                <span class="ms-auto text-white" style="font-family:monospace;">Linux Quiz Terminal</span>
-            </div>
-
-            <!-- Terminal area -->
-            <div class="p-3" style="background:#000; color:#0f0; font-family:monospace; min-height:250px; max-height:400px; overflow-y:auto;" id="quiz-terminal">
-                <div id="quiz-question" style="margin-bottom:10px;">Loading question...</div>
-                <textarea id="quiz-answer" style="width:100%; height:60px; background:#111; color:#0f0; border:none; padding:10px; font-family:monospace; resize:none;" placeholder="Type your command here..."></textarea>
-                <div class="mt-2 d-flex justify-content-end gap-2">
-                    <button class="btn btn-sm btn-primary" id="run-btn"><i class="bi bi-play-fill"></i> Run</button>
-                    <button class="btn btn-sm btn-secondary"><i class="bi bi-bug-fill"></i> Debug</button>
-                    <button class="btn btn-sm btn-danger"><i class="bi bi-x-lg"></i> Close</button>
+    <section id="quiz">
+        <div class="container">
+            <h2 class="section-title">تحديات تفاعلية متعددة</h2>
+            <p class="section-subtitle">تدريب سريع في أوامر لينكس، شبكات، أمن، وذكاء اصطناعي. عند الخطأ تحصل على الشرح والمعلومة الصحيحة مباشرة.</p>
+            <div class="terminal-window mx-auto" style="max-width: 900px;">
+                <div class="window-header d-flex align-items-center p-2">
+                    <span class="window-btn bg-danger me-2"></span>
+                    <span class="window-btn bg-warning me-2"></span>
+                    <span class="window-btn bg-success me-2"></span>
+                    <span class="text-white ms-auto" style="font-family: monospace;">Linux Quiz Terminal</span>
                 </div>
-                <p id="quiz-feedback" class="mt-2 fs-5"></p>
+                <div class="p-3" id="quiz-terminal">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span id="quiz-category" class="badge text-bg-dark"></span>
+                        <small id="quiz-hint" class="text-muted"></small>
+                    </div>
+                    <div id="quiz-question" class="mb-3">Loading question...</div>
+                    <textarea id="quiz-answer" placeholder="اكتب الأمر هنا..." class="w-100 mb-3" rows="3"></textarea>
+                    <div class="d-flex justify-content-end gap-2">
+                        <button class="btn btn-sm btn-primary" id="run-btn"><i class="bi bi-play-fill"></i> تنفيذ</button>
+                        <button class="btn btn-sm btn-secondary" disabled><i class="bi bi-bug-fill"></i> Debug</button>
+                        <button class="btn btn-sm btn-danger" disabled><i class="bi bi-x-lg"></i> Close</button>
+                    </div>
+                    <p id="quiz-feedback" class="mt-2 fs-5"></p>
+                </div>
+                <div id="falling-roses-container" style="position:absolute; inset:0; pointer-events:none;"></div>
             </div>
-
-            <!-- Falling roses container -->
-            <div id="falling-roses-container" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></div>
+            <audio id="correct-sound" src="correct.mp3"></audio>
+            <audio id="wrong-sound" src="wrong.mp3"></audio>
         </div>
-
-        <audio id="correct-sound" src="correct.mp3"></audio>
-        <audio id="wrong-sound" src="wrong.mp3"></audio>
     </section>
 
-    <!--<style>
-        .terminal-window {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #444;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-            .terminal-window:hover {
-                transform: translateY(-5px) scale(1.01);
-            }
-
-        .window-header .window-btn {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        #quiz-terminal {
-            line-height: 1.5;
-        }
-
-        @keyframes fall-rose {
-            0% {
-                top: -40px;
-                opacity: 1;
-                transform: rotate(0deg);
-            }
-
-            100% {
-                top: 100%;
-                opacity: 0;
-                transform: rotate(360deg);
-            }
-        }
-    </style>-->
-    <!--<script>
-        // Linux Quiz Data
-        const quizQuestions = [
-            { q: "List all files in current directory", a: "ls" },
-            { q: "Show current directory", a: "pwd" },
-            { q: "Show disk usage", a: "df" },
-            { q: "View running processes", a: "ps" },
-            { q: "Change directory to home", a: "cd ~" },
-            { q: "Create new directory 'test'", a: "mkdir test" },
-            { q: "Remove file 'file.txt'", a: "rm file.txt" },
-            { q: "Copy file1.txt to file2.txt", a: "cp file1.txt file2.txt" },
-            { q: "Move file1.txt to /tmp", a: "mv file1.txt /tmp" },
-            { q: "Display content of file.txt", a: "cat file.txt" },
-            { q: "Show last 10 lines of a file", a: "tail file.txt" },
-            { q: "Show first 10 lines of a file", a: "head file.txt" },
-            { q: "Find files containing 'hello'", a: "grep 'hello' *" },
-            { q: "Display manual for ls", a: "man ls" },
-            { q: "Change file permissions to 755", a: "chmod 755 file.txt" },
-            { q: "Change file owner to user 'root'", a: "chown root file.txt" },
-            { q: "Check free memory", a: "free -h" },
-            { q: "List all active network connections", a: "netstat -tuln" },
-            { q: "Display environment variables", a: "env" },
-            { q: "Search for a package with apt", a: "apt search package_name" },
-            { q: "Install a package using apt", a: "apt install package_name" },
-            { q: "Update package list", a: "apt update" },
-            { q: "Upgrade all packages", a: "apt upgrade" },
-            { q: "Show disk space usage of directories", a: "du -h" },
-            { q: "Compress file.txt using gzip", a: "gzip file.txt" },
-            { q: "Extract file.tar.gz", a: "tar -xzvf file.tar.gz" },
-            { q: "Display current logged in users", a: "who" },
-            { q: "Check system uptime", a: "uptime" },
-            { q: "Kill process with PID 1234", a: "kill 1234" },
-            { q: "Search command history for 'ls'", a: "history | grep ls" }
-        ];
-
-
-        let currentQuiz = {};
-        const quizQuestion = document.getElementById("quiz-question");
-        const quizAnswer = document.getElementById("quiz-answer");
-        const quizFeedback = document.getElementById("quiz-feedback");
-        const correctSound = document.getElementById("correct-sound");
-        const wrongSound = document.getElementById("wrong-sound");
-        const rosesContainer = document.getElementById("falling-roses-container");
-
-        function loadQuiz() {
-            currentQuiz = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
-            quizQuestion.textContent = currentQuiz.q;
-            quizAnswer.value = "";
-            quizFeedback.textContent = "";
-            rosesContainer.innerHTML = "";
-        }
-        loadQuiz();
-
-        // Create falling rose
-        function createRose(x) {
-            const rose = document.createElement("div");
-            rose.textContent = "🌹";
-            rose.style.position = "absolute";
-            rose.style.left = x + "px";
-            rose.style.top = "-40px";
-            rose.style.fontSize = (Math.random() * 30 + 20) + "px";
-            rose.style.animation = "fall-rose " + (Math.random() * 2 + 2) + "s linear forwards";
-            rosesContainer.appendChild(rose);
-            setTimeout(() => rose.remove(), 4000);
-        }
-
-        // Run button event
-        document.getElementById("run-btn").addEventListener("click", () => {
-            const ans = quizAnswer.value.trim().toLowerCase();
-            if (ans === currentQuiz.a.toLowerCase()) {
-                quizFeedback.textContent = "Correct! 🎉";
-                quizFeedback.style.color = "green";
-                correctSound.play();
-                for (let i = 0; i < 20; i++) createRose(Math.random() * 800);
-            } else {
-                quizFeedback.textContent = "Incorrect! ❌";
-                quizFeedback.style.color = "red";
-                wrongSound.play();
-            }
-            setTimeout(loadQuiz, 2500);
-        });
-
-        // Enter key also runs
-        quizAnswer.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-                e.preventDefault();
-                document.getElementById("run-btn").click();
-            }
-        });
-    </script>-->
-    <!-- Search & Maps Section -->
-    <section id="search" style="min-height:100vh;" class="container d-flex flex-column justify-content-center">
-        <h2 class="section-title text-center mb-4">Search & Maps</h2>
-
-        <div class="mx-auto" style="max-width:800px; width:100%;">
-            <!-- Fake Window Map Frame -->
-            <div class="card shadow" style="position:relative; border-radius:12px; overflow:hidden;">
-
-                <!-- Fake window header -->
-                <div class="card-header d-flex align-items-center justify-content-between" style="background:#222; color:#fff; height:40px;">
+    <!-- Search & Maps -->
+    <section id="search">
+        <div class="container">
+            <h2 class="section-title">خرائط وبيانات</h2>
+            <p class="section-subtitle">بحث سريع عن المدن أو مواقع العملاء المحتملين مباشرة من داخل الصفحة.</p>
+            <div class="card shadow mx-auto" style="max-width: 900px;">
+                <div class="card-header d-flex align-items-center justify-content-between" style="background:#111; color:#fff;">
                     <div class="d-flex gap-2">
-                        <div style="width:12px;height:12px;background:#ff5f56;border-radius:50%;"></div>
-                        <div style="width:12px;height:12px;background:#ffbd2e;border-radius:50%;"></div>
-                        <div style="width:12px;height:12px;background:#27c93f;border-radius:50%;"></div>
+                        <div class="window-btn bg-danger"></div>
+                        <div class="window-btn bg-warning"></div>
+                        <div class="window-btn bg-success"></div>
                     </div>
-                    <span style="font-family:monospace;">Map Frame</span>
+                    <span style="font-family: monospace;">Map Frame</span>
                 </div>
-
-                <!-- Search inside window -->
-                <div class="p-2" style="background:#f1f1f1;">
-                    <input type="text" id="map-search" class="form-control" placeholder="Type place name or address...">
+                <div class="p-3">
+                    <input type="text" id="map-search" class="form-control" placeholder="اكتب اسم مدينة أو عنوان ...">
                 </div>
-
-                <!-- Map container -->
-                <iframe id="map-frame"
-                        src="https://www.google.com/maps?q=Baghdad&output=embed"
-                        style="width:100%; height:500px; border:0;"
-                        allowfullscreen
-                        loading="lazy">
-                </iframe>
-
+                <iframe id="map-frame" src="https://www.google.com/maps?q=Baghdad&output=embed" style="width:100%; height:500px; border:0;" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!--<script>
-        const searchInput = document.getElementById("map-search");
-        const mapFrame = document.getElementById("map-frame");
-
-        let typingTimer;
-        searchInput.addEventListener("input", () => {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(() => {
-                const query = searchInput.value.trim();
-                if (query.length > 2) {
-                    const url = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
-                    mapFrame.src = url;
-                }
-            }, 700); // 700ms debounce
-        });
-    </script>-->
-    <!--<style>
-        .card.shadow:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-
-        #map-search {
-            font-family: monospace;
-            font-size: 0.95rem;
-        }
-    </style>-->
-    <!-- Contact Section -->
-    <section id="contact" style="min-height:100vh;" class="container d-flex flex-column justify-content-center">
-        <h2 class="section-title text-center mb-5">Get in Touch</h2>
-
-        <div class="row justify-content-center g-4">
-
-            <!-- Contact Info Card -->
-            <div class="col-md-4">
-                <div class="card shadow p-4 h-100 text-center contact-card" style="border-radius:15px; transition:0.3s;">
-                    <h5 class="mb-4">Contact Info</h5>
-                    <p><i class="bi bi-telephone-fill text-primary me-2"></i>+964-770-436-7549</p>
-                    <p><i class="bi bi-envelope-fill text-success me-2"></i>haider2alatare@gmail.com</p>
-                    <p><i class="bi bi-geo-alt-fill text-danger me-2"></i>Baghdad, Kadhimiya</p>
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <p class="section-subtitle">لنطور منتجك القادم، نقوي بنيتك التحتية، أو نؤمن شبكتك.</p>
+            <div class="grid-3 mt-4">
+                <div class="contact-card">
+                    <i class="bi bi-linkedin" style="font-size:1.6rem;"></i>
+                    <p class="mt-2">linkedin.com/in/haider22308</p>
+                    <a href="https://linkedin.com/in/haider22308" target="_blank" class="btn btn-outline-primary">LinkedIn</a>
+                </div>
+                <div class="contact-card">
+                    <i class="bi bi-github" style="font-size:1.6rem;"></i>
+                    <p class="mt-2">github.com/Tetane0m</p>
+                    <a href="https://github.com/Tetane0m" target="_blank" class="btn btn-outline-light">GitHub</a>
+                </div>
+                <div class="contact-card">
+                    <i class="bi bi-envelope" style="font-size:1.6rem;"></i>
+                    <p class="mt-2">haider2alatare@gmail.com</p>
+                    <a href="mailto:haider2alatare@gmail.com" class="btn btn-outline-info">Email</a>
                 </div>
             </div>
-
-            <!-- Social Links Card -->
-            <div class="col-md-6">
-                <div class="card shadow p-4 h-100 text-center contact-card" style="border-radius:15px; transition:0.3s;">
-                    <h5 class="mb-4">Connect with me</h5>
-                    <div class="d-flex justify-content-center flex-wrap gap-3">
-                        <a href="https://linkedin.com/in/haider22308" target="_blank" class="btn btn-outline-primary btn-lg">
-                            <i class="bi bi-linkedin me-2"></i>LinkedIn
-                        </a>
-                        <a href="https://github.com/Tetane0m" target="_blank" class="btn btn-outline-dark btn-lg">
-                            <i class="bi bi-github me-2"></i>GitHub
-                        </a>
-                        <a href="https://www.instagram.com/hayder.codes?igsh=eTlpOWl0dWkyOXJ5" target="_blank" class="btn btn-outline-danger btn-lg">
-                            <i class="bi bi-instagram me-2"></i>Instagram
-                        </a>
-                        <a href="https://t.me/CellsForSell" target="_blank" class="btn btn-outline-info btn-lg text-blue">
-                            <i class="bi bi-telegram me-2"></i>Telegram
-                        </a>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-center mt-3 flex-wrap gap-2">
+                <a href="https://www.instagram.com/hayder.codes?igsh=eTlpOWl0dWkyOXJ5" target="_blank" class="btn btn-outline-danger"><i class="bi bi-instagram"></i> Instagram</a>
+                <a href="https://t.me/CellsForSell" target="_blank" class="btn btn-outline-info"><i class="bi bi-telegram"></i> Telegram</a>
             </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center text-white py-4" style="background: linear-gradient(135deg, #0d6efd, #6610f2);">
-        <p class="mb-2" style="font-size:1rem;">Made with <span style="color:#ff4d6d;">❤️</span> by <strong>Hayder Sabah</strong></p>
-        <p style="font-size:0.9rem;">© <span id="year"></span> All Rights Reserved</p>
+    <footer class="text-center py-4">
+        <p>Made with <span style="color:#ff4d6d;">❤</span> by <strong>Hayder Sabah</strong></p>
+        <p>© <span id="year"></span> All Rights Reserved</p>
     </footer>
 
-    <!--<script>
-        // Footer year
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        // Optional hover effect on cards
-        const cards = document.querySelectorAll('.contact-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-5px)');
-            card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0)');
-        });
-    </script>-->
-    <!--<style>
-        .contact-card p {
-            font-size: 1.1rem;
-        }
-
-        .contact-card a.btn {
-            transition: 0.3s;
-        }
-
-            .contact-card a.btn:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-            }
-    </style>-->
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!--<script>
-        // Footer year
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        // Smooth scrolling for navbar links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Retype effect for Hero section (already included in previous chunk)
-        const phrases = ["Linux System Administrator", "Network Enthusiast", "Full-Stack Hobbyist", "Ethical Hacking Learner"];
-        let index = 0, charIndex = 0, deleting = false;
-        const typedText = document.getElementById("typed-text");
-        function type() {
-            const current = phrases[index % phrases.length];
-            if (!deleting) {
-                typedText.textContent = current.slice(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === current.length) { deleting = true; setTimeout(type, 1200); return; }
-            } else {
-                typedText.textContent = current.slice(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) { deleting = false; index++; }
-            }
-            setTimeout(type, deleting ? 50 : 90);
-        }
-        type();
-
-        // Dark/Light theme toggle (already included in previous chunk)
-        document.getElementById("themeToggle").addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-            document.getElementById("themeToggle").innerHTML = document.body.classList.contains("dark-mode") ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
-        });
-    </script>-->
-    <!--<style>
-        /* Extra visual polish */
-        .card-hover {
-            border-radius: 12px;
-        }
-
-
-
-
-        #search-window .card-header button {
-            width: 30px;
-            height: 25px;
-            padding: 0;
-        }
-
-        #quiz-card {
-            background: #222;
-            color: #0f0;
-        }
-
-            #quiz-card input:focus {
-                outline: none;
-                box-shadow: none;
-            }
-    </style>-->
-
     <script src="javascript.js"></script>
 </body>
 </html>

@@ -1,22 +1,15 @@
-﻿
-// Footer year
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Smooth scrolling for navbar links
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-// Retype effect for Hero section (already included in previous chunk)
-const phrases = ["Linux System Administrator", "Network Enthusiast", "Full-Stack Hobbyist", "Ethical Hacking Learner"];
-let index = 0, charIndex = 0, deleting = false;
+// Typewriter effect
+const phrases = [
+    "مهندس نظم وشبكات يكتب كود بسرعة الضوء",
+    "مطور ويب يبني تجارب غامرة وآمنة",
+    "Ethical Hacker يحول التهديدات إلى فرص تعلم",
+    "Full-stack جاهز لتسليم منتجك القادم"
+];
+let phraseIndex = 0, charIndex = 0, deleting = false;
 const typedText = document.getElementById("typed-text");
+
 function type() {
-    const current = phrases[index % phrases.length];
+    const current = phrases[phraseIndex % phrases.length];
     if (!deleting) {
         typedText.textContent = current.slice(0, charIndex + 1);
         charIndex++;
@@ -24,98 +17,65 @@ function type() {
     } else {
         typedText.textContent = current.slice(0, charIndex - 1);
         charIndex--;
-        if (charIndex === 0) { deleting = false; index++; }
+        if (charIndex === 0) { deleting = false; phraseIndex++; }
     }
     setTimeout(type, deleting ? 50 : 90);
 }
+
 type();
 
-// Dark/Light theme toggle (already included in previous chunk)
-document.getElementById("themeToggle").addEventListener("click", () => {
+// Theme toggle
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    document.getElementById("themeToggle").innerHTML = document.body.classList.contains("dark-mode") ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
+    themeToggle.innerHTML = document.body.classList.contains("dark-mode") ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
 });
-
-
-
-
-
 
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Optional hover effect on cards
-const cards = document.querySelectorAll('.contact-card');
-cards.forEach(card => {
-    card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-5px)');
-    card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0)');
-});
-
-
-
-
-
-
+// Map search debounce
 const searchInput = document.getElementById("map-search");
 const mapFrame = document.getElementById("map-frame");
-
 let typingTimer;
 searchInput.addEventListener("input", () => {
     clearTimeout(typingTimer);
     typingTimer = setTimeout(() => {
         const query = searchInput.value.trim();
         if (query.length > 2) {
-            const url = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
-            mapFrame.src = url;
+            mapFrame.src = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
         }
-    }, 700); // 700ms debounce
+    }, 600);
 });
 
-
-
-
-
-
-
-// Linux Quiz Data
+// Interactive quiz data (multi-discipline)
 const quizQuestions = [
-    { q: "List all files in current directory", a: "ls" },
-    { q: "Show current directory", a: "pwd" },
-    { q: "Show disk usage", a: "df" },
-    { q: "View running processes", a: "ps" },
-    { q: "Change directory to home", a: "cd ~" },
-    { q: "Create new directory 'test'", a: "mkdir test" },
-    { q: "Remove file 'file.txt'", a: "rm file.txt" },
-    { q: "Copy file1.txt to file2.txt", a: "cp file1.txt file2.txt" },
-    { q: "Move file1.txt to /tmp", a: "mv file1.txt /tmp" },
-    { q: "Display content of file.txt", a: "cat file.txt" },
-    { q: "Show last 10 lines of a file", a: "tail file.txt" },
-    { q: "Show first 10 lines of a file", a: "head file.txt" },
-    { q: "Find files containing 'hello'", a: "grep 'hello' *" },
-    { q: "Display manual for ls", a: "man ls" },
-    { q: "Change file permissions to 755", a: "chmod 755 file.txt" },
-    { q: "Change file owner to user 'root'", a: "chown root file.txt" },
-    { q: "Check free memory", a: "free -h" },
-    { q: "List all active network connections", a: "netstat -tuln" },
-    { q: "Display environment variables", a: "env" },
-    { q: "Search for a package with apt", a: "apt search package_name" },
-    { q: "Install a package using apt", a: "apt install package_name" },
-    { q: "Update package list", a: "apt update" },
-    { q: "Upgrade all packages", a: "apt upgrade" },
-    { q: "Show disk space usage of directories", a: "du -h" },
-    { q: "Compress file.txt using gzip", a: "gzip file.txt" },
-    { q: "Extract file.tar.gz", a: "tar -xzvf file.tar.gz" },
-    { q: "Display current logged in users", a: "who" },
-    { q: "Check system uptime", a: "uptime" },
-    { q: "Kill process with PID 1234", a: "kill 1234" },
-    { q: "Search command history for 'ls'", a: "history | grep ls" }
+    { q: "List all files in current directory", a: "ls", category: "Linux", hint: "عرض محتوى المجلد الحالي", explain: "استخدم ls لاستعراض كل الملفات والمجلدات في المسار الحالي." },
+    { q: "Show current directory", a: "pwd", category: "Linux", hint: "اطبع مسار العمل", explain: "pwd يعرض لك المسار الكامل للمجلد الذي تعمل فيه الآن." },
+    { q: "Show disk usage", a: "df", category: "Linux", hint: "مساحات الأقراص", explain: "df يعرض استخدام الأقراص والأجزاء بنسب وأحجام." },
+    { q: "View running processes", a: "ps", category: "Linux", hint: "العمليات الجارية", explain: "ps يعطيك قائمة بالعمليات النشطة لتتمكن من مراقبتها أو إنهائها." },
+    { q: "Trace route to 1.1.1.1", a: "traceroute 1.1.1.1", category: "Networking", hint: "مسار الحزم", explain: "traceroute يكشف العقد التي تمر بها الحزمة للوصول إلى الوجهة." },
+    { q: "Create VLAN 20 on Cisco switch", a: "vlan 20", category: "Networking", hint: "من وضع التهيئة", explain: "باستخدام الأمر vlan داخل وضع التهيئة العامة تنشئ شبكة محلية افتراضية جديدة." },
+    { q: "Block SSH brute force with ufw", a: "ufw limit ssh", category: "Security", hint: "حماية منفذ 22", explain: "ufw limit ssh يفعّل معدل محدود للاتصالات على SSH لمنع الهجمات المتكررة." },
+    { q: "Decode JWT header and payload", a: "base64 -d", category: "Security", hint: "ترميز Base64", explain: "أجزاء JWT مشفرة بـBase64؛ استخدم base64 -d بعد تقسيم التوكن بالنقاط." },
+    { q: "Train a classification model with scikit-learn", a: "fit", category: "AI/ML", hint: "استدعاء التدريب", explain: "الدالة fit هي ما يدرّب النموذج على البيانات في scikit-learn." },
+    { q: "Prevent XSS in a form field", a: "sanitize input", category: "Web", hint: "تطهير المدخلات", explain: "تنظيف وتشفير المدخلات قبل عرضها يمنع حقن سكربتات خبيثة." },
+    { q: "Change directory to home", a: "cd ~", category: "Linux", hint: "المسار الافتراضي", explain: "الرمز ~ يشير إلى مجلد المنزل للمستخدم الحالي." },
+    { q: "Compress file.txt using gzip", a: "gzip file.txt", category: "Linux", hint: "ضغط سريع", explain: "gzip يضغط الملف مع الحفاظ على الامتداد .gz لتقليل الحجم." },
+    { q: "List listening ports", a: "netstat -tuln", category: "Security", hint: "TCP/UDP", explain: "netstat -tuln يعرض المنافذ في حالة الاستماع مع بروتوكول النقل." },
+    { q: "Update package list", a: "apt update", category: "Linux", hint: "إحضار آخر الميتاداتا", explain: "apt update يحدّث معلومات الحزم قبل التثبيت أو الترقية." },
+    { q: "Kill process with PID 1234", a: "kill 1234", category: "Linux", hint: "إنهاء PID", explain: "kill متبوعاً بالـPID يرسل إشارة إنهاء للعمليات." },
+    { q: "Find files containing 'hello'", a: "grep 'hello' *", category: "Linux", hint: "بحث نصي", explain: "grep يبحث داخل الملفات عن النص المحدد ويعرض الأسطر المطابقة." },
+    { q: "Use ML model to predict after training", a: "predict", category: "AI/ML", hint: "مرحلة inference", explain: "بعد التدريب تستخدم predict على البيانات الجديدة لاستخراج النتائج." },
+    { q: "Harden cookies against CSRF", a: "sameSite", category: "Web", hint: "خاصية في Set-Cookie", explain: "تحديد SameSite=Lax أو Strict يقلل من إرسال الكوكيز عبر سياقات خارجية." }
 ];
-
 
 let currentQuiz = {};
 const quizQuestion = document.getElementById("quiz-question");
 const quizAnswer = document.getElementById("quiz-answer");
 const quizFeedback = document.getElementById("quiz-feedback");
+const quizCategory = document.getElementById("quiz-category");
+const quizHint = document.getElementById("quiz-hint");
 const correctSound = document.getElementById("correct-sound");
 const wrongSound = document.getElementById("wrong-sound");
 const rosesContainer = document.getElementById("falling-roses-container");
@@ -123,13 +83,14 @@ const rosesContainer = document.getElementById("falling-roses-container");
 function loadQuiz() {
     currentQuiz = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
     quizQuestion.textContent = currentQuiz.q;
+    quizCategory.textContent = currentQuiz.category;
+    quizHint.textContent = currentQuiz.hint;
     quizAnswer.value = "";
     quizFeedback.textContent = "";
     rosesContainer.innerHTML = "";
 }
 loadQuiz();
 
-// Create falling rose
 function createRose(x) {
     const rose = document.createElement("div");
     rose.textContent = "🌹";
@@ -142,23 +103,21 @@ function createRose(x) {
     setTimeout(() => rose.remove(), 4000);
 }
 
-// Run button event
 document.getElementById("run-btn").addEventListener("click", () => {
     const ans = quizAnswer.value.trim().toLowerCase();
     if (ans === currentQuiz.a.toLowerCase()) {
-        quizFeedback.textContent = "Correct! 🎉";
-        quizFeedback.style.color = "green";
+        quizFeedback.textContent = `إجابة صحيحة! 🎉 ${currentQuiz.explain}`;
+        quizFeedback.style.color = "#00e676";
         correctSound.play();
         for (let i = 0; i < 20; i++) createRose(Math.random() * 800);
     } else {
-        quizFeedback.textContent = "Incorrect! ❌";
-        quizFeedback.style.color = "red";
+        quizFeedback.textContent = `إجابة غير دقيقة ❌ — الحل: ${currentQuiz.a} → ${currentQuiz.explain}`;
+        quizFeedback.style.color = "#ff6b6b";
         wrongSound.play();
     }
     setTimeout(loadQuiz, 2500);
 });
 
-// Enter key also runs
 quizAnswer.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         e.preventDefault();
@@ -166,49 +125,35 @@ quizAnswer.addEventListener("keydown", (e) => {
     }
 });
 
-
-
-
-
-
-
-
-
+// Project carousel controls
 const scrollContainer = document.querySelector('.scroll-wrapper');
 const scrollLeftBtn = document.getElementById('scrollLeft');
 const scrollRightBtn = document.getElementById('scrollRight');
 
-// Scroll on button click
-scrollLeftBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: -920, behavior: 'smooth' });
-});
-scrollRightBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: 920, behavior: 'smooth' });
-});
+if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+    scrollLeftBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: -820, behavior: 'smooth' });
+    });
+    scrollRightBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: 820, behavior: 'smooth' });
+    });
 
-// Drag to scroll
-let isDown = false;
-let startX;
-let scrollLeft;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-scrollContainer.addEventListener('mousedown', (e) => {
-    isDown = true;
-    scrollContainer.classList.add('active');
-    startX = e.pageX - scrollContainer.offsetLeft;
-    scrollLeft = scrollContainer.scrollLeft;
-});
-scrollContainer.addEventListener('mouseleave', () => {
-    isDown = false;
-    scrollContainer.classList.remove('active');
-});
-scrollContainer.addEventListener('mouseup', () => {
-    isDown = false;
-    scrollContainer.classList.remove('active');
-});
-scrollContainer.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainer.offsetLeft;
-    const walk = (x - startX) * 1; //scroll-fast
-    scrollContainer.scrollLeft = scrollLeft - walk;
-});
+    scrollContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+    });
+    scrollContainer.addEventListener('mouseleave', () => { isDown = false; });
+    scrollContainer.addEventListener('mouseup', () => { isDown = false; });
+    scrollContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX);
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+}
