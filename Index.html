@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayder Sabah | Cybersecurity & Dev Portfolio v2</title>
+
+    <link rel="icon" href="icon.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Main CSS -->
+    <style>
+        :root {
+            --bg: #05060a;
+            --bg-alt: #070a12;
+            --card: rgba(255, 255, 255, 0.04);
+            --stroke: rgba(255, 255, 255, 0.12);
+            --text: #e8ecf2;
+            --muted: #9aa7c2;
+            --accent: #6f8dff;
+            --accent-2: #7ef0c1;
+            --accent-red: #ff6b6b;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+            --radius-lg: 28px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+            --glass-blur: blur(12px);
+            --font-main: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-main);
+            background: radial-gradient(circle at 20% 20%, rgba(111, 141, 255, 0.16), transparent 28%), radial-gradient(circle at 80% 0%, rgba(126, 240, 193, 0.18), transparent 25%), linear-gradient(135deg, #04040a 0%, #060915 35%, #05060a 100%);
+            color: var(--text);
+            scroll-behavior: smooth;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .dark-mode {
+            background: #05060a;
+            color: var(--text);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.18);
+            border-radius: 999px;
+        }
+
+        /* General */
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+            a:hover {
+                color: #9eb5ff;
+            }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            text-align: center;
+            max-width: 720px;
+            margin: 8px auto 40px auto;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            margin: 14px auto 0 auto;
+            border-radius: 999px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        /* NAVBAR */
+        .main-nav {
+            background: rgba(8, 10, 15, 0.8) !important;
+            backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--stroke);
+            padding: 12px 0;
+        }
+
+        .navbar .navbar-brand {
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .navbar .navbar-brand .dot {
+                width: 10px;
+                height: 10px;
+                background: linear-gradient(135deg, var(--accent), var(--accent-2));
+                border-radius: 50%;
+                display: inline-block;
+            }
+
+        .role-pill {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--stroke);
+            color: var(--muted);
+        }
+
+        .navbar .nav-link {
+            color: var(--muted);
+            position: relative;
+            padding: 8px 12px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+            .navbar .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 12px;
+                bottom: 6px;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(135deg, var(--accent), var(--accent-2));
+                transition: width 0.25s ease;
+            }
+
+            .navbar .nav-link:hover,
+            .navbar .nav-link:focus {
+                color: #fff;
+            }
+
+                .navbar .nav-link:hover::after {
+                    width: 18px;
+                }
+
+        #themeToggle {
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--stroke);
+            color: var(--text);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+            .hero .inner {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                align-items: center;
+                gap: 40px;
+                width: 100%;
+            }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 36px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero-card::before,
+            .hero-card::after {
+                content: "";
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(80px);
+                z-index: 0;
+            }
+
+            .hero-card::before {
+                width: 320px;
+                height: 320px;
+                background: rgba(111, 141, 255, 0.18);
+                top: -100px;
+                right: -80px;
+            }
+
+            .hero-card::after {
+                width: 260px;
+                height: 260px;
+                background: rgba(126, 240, 193, 0.18);
+                bottom: -80px;
+                left: -60px;
+            }
+
+        .hero h1 {
+            font-size: clamp(34px, 4vw, 50px);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+            .hero h1 span {
+                color: var(--accent-2);
+            }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            min-height: 26px;
+        }
+
+        .hero .intro {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 620px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Buttons */
+        .btn-glow {
+            padding: 11px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--stroke);
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            box-shadow: 0 10px 30px rgba(111, 141, 255, 0.35);
+            font-size: 14px;
+        }
+
+        .btn-ghost {
+            padding: 11px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--stroke);
+            color: #fff;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+        }
+
+        .btn-ghost-alt {
+            padding: 11px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--muted);
+            font-weight: 500;
+            background: rgba(0,0,0,0.4);
+            font-size: 13px;
+        }
+
+        /* Hero metrics */
+        .hero-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric h3 {
+            margin: 0;
+            color: var(--accent-2);
+            font-size: 26px;
+        }
+
+        .metric span {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Pills */
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pill {
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--stroke);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            font-weight: 500;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Profile blob */
+        /* ===== Profile Blob (Final Perfect Version) ===== */
+
+        /* ========== Water Blob Shape (Perfect Organic Version) ========== */
+        /* ====== SAFE WATER BLOB (Mask Version — Always Visible) ====== */
+
+        .profile-blob {
+            position: relative;
+            width: min(450px, 90vw);
+            margin: auto;
+        }
+
+            .profile-blob .shape {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                position: relative;
+                overflow: hidden;
+                /* بقعة ماء بدون قص كامل */
+                -webkit-mask-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"> <path d="M638 132q68 82 48 189.5T635 505q-63 82-153 156t-173 16Q206 632 121 546T49 354q3-94 72.5-176T294 44q95-18 172.5 14T638 132Z" fill="black"/> </svg>'); mask-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"> <path d="M638 132q68 82 48 189.5T635 505q-63 82-153 156t-173 16Q206 632 121 546T49 354q3-94 72.5-176T294 44q95-18 172.5 14T638 132Z" fill="black"/> </svg>'); -webkit-mask-size: cover;
+                mask-size: cover;
+                animation: blobMove 8s ease-in-out infinite;
+                background: linear-gradient(135deg, rgba(111,141,255,0.25), rgba(126,240,193,0.25));
+                box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+            }
+
+            .profile-blob img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                /* نفس الـ mask للبقعة */
+                -webkit-mask-image: inherit;
+                mask-image: inherit;
+                -webkit-mask-size: inherit;
+                mask-size: inherit;
+                animation: slowZoom 7s ease-in-out infinite;
+                filter: saturate(1.05) contrast(1.05);
+            }
+
+            /* highlight */
+            .profile-blob .ink-highlight {
+                position: absolute;
+                top: 12%;
+                right: 12%;
+                width: 28%;
+                height: 28%;
+                background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
+                mix-blend-mode: screen;
+                animation: highlightMove 5s infinite;
+            }
+
+        /* Animations */
+        @keyframes blobMove {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.04) rotate(1deg);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slowZoom {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        @keyframes highlightMove {
+            0%,100% {
+                transform: translate(0,0);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translate(-12px,12px);
+                opacity: 0.7;
+            }
+        }
+
+
+        /* ========== Cybersecurity Glow (Neon) ========== */
+        .track-cyber:hover {
+            border-color: rgba(0,255,180,0.6);
+            box-shadow: 0 0 22px rgba(0,255,180,0.5), 0 0 45px rgba(0,255,180,0.3), inset 0 0 20px rgba(0,255,180,0.25);
+            transform: translateY(-6px) scale(1.03);
+            transition: 0.35s ease;
+        }
+
+            .track-cyber:hover .icon-circle {
+                background: rgba(0,255,180,0.25);
+                box-shadow: 0 0 18px rgba(0,255,180,0.6);
+            }
+
+        /* ========== Networks Fire/Burn Effect ========== */
+        .track-network {
+            position: relative;
+            overflow: hidden;
+        }
+
+            .track-network:hover {
+                border-color: rgba(255,120,0,0.7);
+                box-shadow: 0 0 20px rgba(255,120,0,0.4), 0 0 40px rgba(255,80,0,0.25);
+                transform: translateY(-6px) scale(1.03);
+            }
+
+                .track-network:hover::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: radial-gradient(circle at top right, rgba(255,140,0,0.35), transparent 60%), radial-gradient(circle at bottom left, rgba(255,60,0,0.25), transparent 60%);
+                    filter: blur(8px);
+                    opacity: 1;
+                }
+
+        /* ========== Full-Stack Freeze/Ice Effect ========== */
+        .track-dev:hover {
+            border-color: rgba(150,180,255,0.7);
+            background: rgba(200,220,255,0.04);
+            box-shadow: 0 0 25px rgba(120,160,255,0.4), inset 0 0 22px rgba(150,180,255,0.3);
+            transform: translateY(-6px) scale(1.04);
+        }
+
+            .track-dev:hover::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background: url('data:image/svg+xml;utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">\
+        <text x="20" y="60" fill="rgba(255,255,255,0.15)" font-size="48">*</text>\
+        <text x="100" y="120" fill="rgba(255,255,255,0.12)" font-size="42">*</text>\
+        <text x="180" y="40" fill="rgba(255,255,255,0.10)" font-size="50">*</text>\
+        </svg>');
+                opacity: 0.6;
+                filter: blur(2px);
+            }
+
+
+        /* Floating cards */
+        .floating-card {
+            position: absolute;
+            background: rgba(5, 7, 14, 0.95);
+            border-radius: 14px;
+            padding: 8px 12px;
+            border: 1px solid var(--stroke);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            box-shadow: var(--shadow);
+        }
+
+            .floating-card i {
+                font-size: 18px;
+                color: var(--accent-2);
+            }
+
+            .floating-card strong {
+                display: block;
+                color: #fff;
+            }
+
+            .floating-card small {
+                color: var(--muted);
+            }
+
+        .fc-1 {
+            top: 10%;
+            left: -4%;
+        }
+
+        .fc-2 {
+            bottom: 8%;
+            right: -6%;
+        }
+
+        .fc-3 {
+            top: 55%;
+            right: -4%;
+        }
+
+        /* Cards */
+        .card-glass {
+            background: var(--card);
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            height: 100%;
+        }
+
+            .card-glass .icon-circle {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                margin-bottom: 14px;
+                background: rgba(111, 141, 255, 0.15);
+                color: #fff;
+            }
+
+            .card-glass h5 {
+                margin-bottom: 8px;
+                color: #fff;
+                font-weight: 700;
+            }
+
+            .card-glass p {
+                color: var(--muted);
+                margin: 0;
+            }
+
+        .mini-list {
+            margin: 12px 0 0 0;
+            padding-right: 18px;
+            list-style: none;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+            .mini-list li {
+                position: relative;
+                margin-bottom: 4px;
+            }
+
+                .mini-list li::before {
+                    content: "•";
+                    position: absolute;
+                    right: -10px;
+                    color: var(--accent-2);
+                }
+
+        /* COURSES */
+        .course-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+            .course-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+            }
+
+        .course-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            margin-bottom: 14px;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .course-progress {
+            margin-top: 10px;
+        }
+
+            .course-progress span {
+                font-size: 12px;
+                color: var(--muted);
+            }
+
+            .course-progress .progress {
+                background: rgba(255,255,255,0.08);
+                border-radius: 999px;
+                height: 8px;
+                margin-top: 4px;
+                overflow: hidden;
+            }
+
+        /* PROJECTS */
+        .project-carousel {
+            position: relative;
+        }
+
+        .scroll-wrapper {
+            overflow-x: auto;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            padding: 14px 0 4px 0;
+        }
+
+            .scroll-wrapper::-webkit-scrollbar {
+                height: 10px;
+            }
+
+            .scroll-wrapper::-webkit-scrollbar-thumb {
+                background: rgba(255,255,255,0.18);
+                border-radius: 10px;
+            }
+
+        .project-card {
+            display: inline-flex;
+            width: 780px;
+            height: 360px; /* هذا يثبّت حجم البطاقة */
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--stroke);
+            margin-right: 16px;
+            background: rgba(255,255,255,0.03);
+            box-shadow: var(--shadow);
+        }
+
+            .project-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+            }
+
+        .project-figure {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(8,10,15,0.45), rgba(8,10,15,0.85));
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* يملأ المربع كامل بدون تشويه */
+            display: block;
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: auto 12px 14px 12px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            background: rgba(0, 0, 0, 0.55);
+            color: #e8ecf2;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            font-size: 13px;
+        }
+
+        .project-card .card-body {
+            width: 55%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .project-card h5 {
+            color: #fff;
+            font-weight: 800;
+        }
+
+            .project-card h5 i {
+                margin-left: 4px;
+                color: var(--accent-2);
+            }
+
+        .project-card p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* Project nav buttons */
+        .project-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+        }
+
+            .project-nav button {
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                border: 1px solid var(--stroke);
+                background: rgba(8, 10, 15, 0.9);
+                color: #fff;
+                box-shadow: var(--shadow);
+            }
+
+            .project-nav.left {
+                left: -10px;
+            }
+
+            .project-nav.right {
+                right: -10px;
+            }
+
+        /* LAB */
+        .lab-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+            gap: 22px;
+        }
+
+        .terminal-window {
+            border-radius: var(--radius-md);
+            border: 1px solid #30363d;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .window-header {
+            background: #111;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .window-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        #quiz-terminal {
+            background: #000;
+            color: #0f0;
+            min-height: 260px;
+            max-height: 420px;
+            overflow-y: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+        }
+
+        #quiz-answer {
+            background: #0b0b0b;
+            color: #0f0;
+            border: 1px solid #1f1f1f;
+            border-radius: 10px;
+            padding: 12px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        #quiz-category {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 10px;
+        }
+
+        #quiz-hint {
+            color: #a1a1a1;
+        }
+
+        @keyframes fall-rose {
+            0% {
+                top: -40px;
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+                transform: rotate(360deg);
+            }
+        }
+
+        .map-card {
+            background: var(--card);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--stroke);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .map-frame-wrapper {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--stroke);
+        }
+
+        #map-frame {
+            width: 100%;
+            height: 260px;
+            border: 0;
+        }
+
+        /* BLOG */
+        .blog-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            cursor: pointer;
+            min-height: 180px;
+        }
+
+            .blog-card .blog-preview {
+                max-height: 58px;
+                overflow: hidden;
+                transition: max-height 0.35s ease;
+            }
+
+            .blog-card .blog-full {
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                color: var(--muted);
+                font-size: 14px;
+                transition: all 0.45s ease;
+            }
+
+            .blog-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+                background: rgba(255,255,255,0.06);
+            }
+
+                .blog-card:hover .blog-preview {
+                    max-height: 0;
+                    opacity: 0;
+                }
+
+                .blog-card:hover .blog-full {
+                    max-height: 260px;
+                    opacity: 1;
+                }
+
+
+        /* CONTACT */
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+            .contact-card p {
+                color: var(--muted);
+            }
+
+            .contact-card a.btn {
+                margin-top: 8px;
+            }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--stroke);
+            background: radial-gradient(circle at 20% 20%, rgba(111,141,255,0.15), transparent 35%), #07080f;
+        }
+
+            footer p {
+                margin: 0;
+                color: var(--muted);
+            }
+
+        /* Animations */
+        @keyframes blob-float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(1deg) scale(1.02);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.65;
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                opacity: 0.9;
+                transform: translate(-6px, 4px) scale(1.08);
+            }
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.5s ease;
+        }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        .reveal-delay {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.8s ease;
+        }
+
+            .reveal-delay.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .project-card {
+                width: 90vw;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .project-figure {
+                width: 100%;
+                height: 220px;
+            }
+
+            .project-card .card-body {
+                width: 100%;
+            }
+
+            .project-nav {
+                display: none;
+            }
+
+            .lab-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-card {
+                padding: 26px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-metrics {
+                gap: 12px;
+            }
+
+            .metric h3 {
+                font-size: 22px;
+            }
+
+            .profile-blob {
+                max-width: 360px;
+            }
+        }
+
+        #floating-score {
+            position: fixed;
+            bottom: 40px;
+            left: 40px; /* بدل left */
+            background: rgba(40,40,50,0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            color: #7ef0c1;
+            z-index: 999999; /* أعلى شيء */
+            box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 16px;
+        }
+
+
+        .falling-item {
+            position: absolute;
+            top: -50px;
+            cursor: pointer;
+            user-select: none;
+            z-index: 9999;
+            animation: sway 3.5s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0% {
+                transform: translateX(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateX(15px) rotate(8deg);
+            }
+
+            50% {
+                transform: translateX(-10px) rotate(-6deg);
+            }
+
+            75% {
+                transform: translateX(20px) rotate(10deg);
+            }
+
+            100% {
+                transform: translateX(0px) rotate(0deg);
+            }
+        }
+
+        .plus-one {
+            position: fixed;
+            color: #7ef0c1;
+            font-weight: 800;
+            font-size: 22px;
+            animation: plusAnim 1s ease forwards;
+            z-index: 9999;
+        }
+
+        @keyframes plusAnim {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+        }
+
+
+        .cursor-trail {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999999;
+            background: radial-gradient(circle, rgba(126,240,193,1), rgba(126,240,193,0));
+            box-shadow: 0 0 20px rgba(126,240,193,0.8);
+            animation: fadeOut 0.7s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">
+                <span class="dot"></span>
+                <span>Hayder Sabah</span>
+                <span class="role-pill">IT Specialist • Cybersecurity</span>
+            </a>
+
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn" id="themeToggle" aria-label="Toggle theme"><i class="bi bi-moon"></i></button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#hero">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tracks">المسارات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">الكورسات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">المشاريع</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lab">المختبر</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">المحتوى التعليمي</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">تواصل</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="floating-score">
+        <i class="bi bi-stars"></i>
+        <span id="score">0</span>
+    </div>
+
+
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="inner">
+                <!-- Text side -->
+                <div class="hero-card text-end reveal">
+                    <h1>أهلاً، أنا <span>حيدر صباح</span></h1>
+                    <p class="hero-subtitle" id="typed-text"></p>
+                    <p class="intro">
+                        مبرمج، مهندس نظم وشبكات، ومختص أمن سيبراني. أبني حلول متكاملة من البنية التحتية
+                        حتى واجهة المستخدم، مع تركيز على الأتمتة، الأمن، وتجربة المستخدم.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#courses" class="btn-glow"><i class="bi bi-shield-lock"></i> ابدأ رحلة الأمن السيبراني</a>
+                        <a href="Mycv.pdf" class="btn-ghost"><i class="bi bi-download"></i> تحميل السيرة الذاتية</a>
+                        <a href="mailto:haider2alatare@gmail.com" class="btn-ghost-alt"><i class="bi bi-envelope"></i> تواصل للعمل</a>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <h3>+20</h3>
+                            <span>مشروع متكامل</span>
+                        </div>
+                        <div class="metric">
+                            <h3>+300</h3>
+                            <span>متعلّم درّبتهم</span>
+                        </div>
+                        <div class="metric">
+                            <h3>+7</h3>
+                            <span>شهادات تقنية</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-tags">
+                        <span class="pill"><i class="bi bi-terminal"></i> Linux & Automation</span>
+                        <span class="pill"><i class="bi bi-diagram-3"></i> Networks & CCNA</span>
+                        <span class="pill"><i class="bi bi-robot"></i> AI & ML</span>
+                        <span class="pill"><i class="bi bi-code-slash"></i> Full-Stack Development</span>
+                    </div>
+                </div>
+
+                <!-- Profile side -->
+                <div class="profile-blob reveal-delay">
+                    <div class="ink-backdrop"></div>
+                    <div class="shape">
+                        <img src="me.jpg" alt="Hayder Sabah portrait">
+                        <span class="ink-highlight"></span>
+                    </div>
+
+                    <div class="floating-card fc-1">
+                        <i class="bi bi-shield-lock"></i>
+                        <div>
+                            <strong>Cybersecurity</strong>
+                            <small>Blue & Red Team Labs</small>
+                        </div>
+                    </div>
+                    <div class="floating-card fc-2">
+                        <i class="bi bi-hdd-network"></i>
+                        <div>
+                            <strong>Linux & Servers</strong>
+                            <small>Custom secure environments</small>
+                        </div>
+                    </div>
+                    <div class="floating-card fc-3">
+                        <i class="bi bi-cpu"></i>
+                        <div>
+                            <strong>AI Projects</strong>
+                            <small>Tumor & Image Classification</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRACKS -->
+    <section id="tracks">
+        <div class="container">
+            <h2 class="section-title">المسارات التي أقدّمها</h2>
+            <p class="section-subtitle">
+                بناء مهندس متكامل: من أساسيات الشبكات واللينكس إلى الأمن السيبراني والذكاء الاصطناعي وتطوير الويب.
+            </p>
+
+            <div class="grid-3 mt-4">
+                <div class="card-glass track-card track-cyber reveal">
+                    <div class="icon-circle"><i class="bi bi-shield-shaded"></i></div>
+                    <h5>مسار الأمن السيبراني</h5>
+                    <p>تهديدات، هجمات عملية، مختبرات Kali، إعداد بيئات اختبار، وتقارير احترافية.</p>
+                    <ul class="mini-list">
+                        <li>Fundamentals & Threats</li>
+                        <li>Web & Network Attacks</li>
+                        <li>Red / Blue Team Basics</li>
+                    </ul>
+                </div>
+
+                <div class="card-glass track-card track-network reveal">
+                    <div class="icon-circle"><i class="bi bi-wifi"></i></div>
+                    <h5>مسار الشبكات و CCNA</h5>
+                    <p>تصميم الشبكات، VLANs، Routing & Switching، واستكشاف الأخطاء.</p>
+                    <ul class="mini-list">
+                        <li>Cisco Basics & Topologies</li>
+                        <li>VLAN, STP, Routing</li>
+                        <li>Troubleshooting عملي</li>
+                    </ul>
+                </div>
+
+                <div class="card-glass track-card track-dev reveal">
+                    <div class="icon-circle"><i class="bi bi-code-square"></i></div>
+                    <h5>مسار البرمجة و Full-Stack</h5>
+                    <p>واجهات حديثة، APIs آمنة، قواعد بيانات، ونشر تطبيقات للإنتاج.</p>
+                    <ul class="mini-list">
+                        <li>HTML, CSS, JS</li>
+                        <li>Back-end & APIs</li>
+                        <li>Databases & Auth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses">
+        <div class="container">
+            <h2 class="section-title">الكورسات العملية</h2>
+            <p class="section-subtitle">
+                كورسات عملية بمشاريع حقيقية، ملفات عمل جاهزة، وتمارين تفاعلية.
+            </p>
+
+            <div class="grid-3 mt-4">
+
+                <!-- Cyber Course -->
+                <div class="card-glass course-card reveal">
+                    <img src="Cyber-Security.jpg" class="course-img" alt="Cybersecurity">
+                    <h4>Cybersecurity Masterclass</h4>
+                    <p>من الصفر حتى بناء مختبر متكامل لاختبار الاختراق وتحليل الهجمات والتقارير.</p>
+                    <div class="course-meta">
+                        <span><i class="bi bi-clock"></i> 30 ساعة</span>
+                        <span><i class="bi bi-bar-chart"></i> متقدم</span>
+                    </div>
+                    <div class="course-progress">
+                        <span>المحتوى الحالي</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <button class="btn-glow w-100 mt-2 course-details-btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#courseModal"
+                            data-title="Cybersecurity Masterclass"
+                            data-level="متقدم"
+                            data-hours="30 ساعة تدريبية"
+                            data-description="كورس عملي يجهّزك لبناء مختبر اختبار اختراق كامل، فهم مراحل الهجوم، وكيفية الدفاع وكتابة تقارير احترافية."
+                            data-outline="
+        • مقدمة في الأمن السيبراني، أنواع الهجمات، مفاهيم Threat & Risk.
+        • إعداد بيئة Kali Linux و Windows للاختبار.
+        • هجمات على الشبكات اللاسلكية، الخدمات، والبورتات المفتوحة.
+        • Web Application Security: SQLi, XSS, Auth Bypass.
+        • Metasploit, Burp Suite, Wireshark في سيناريوهات حقيقية.
+        • كتابة تقارير احترافية للشركات والعملاء.
+    ">
+                        عرض محتوى الكورس
+                    </button>
+                </div>
+
+                <!-- Full-Stack Course -->
+                <div class="card-glass course-card reveal">
+                    <img src="Web-Tools.jpg" class="course-img" alt="Full-Stack">
+                    <h4>Full-Stack Web Development</h4>
+                    <p>إنشاء أنظمة إدارة، صفحات تسويق، Panels، وتطبيقات متكاملة.</p>
+                    <div class="course-meta">
+                        <span><i class="bi bi-clock"></i> 45 ساعة</span>
+                        <span><i class="bi bi-bar-chart"></i> متوسط - متقدم</span>
+                    </div>
+                    <div class="course-progress">
+                        <span>المحتوى الحالي</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <button class="btn-glow w-100 mt-2 course-details-btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#courseModal"
+                            data-title="Full-Stack Web Development"
+                            data-level="متوسط - متقدم"
+                            data-hours="45 ساعة تدريبية"
+                            data-description="من الصفر حتى بناء لوحة تحكم كاملة وأنظمة إدارة حقيقية باستخدام تقنيات حديثة في الواجهة والخلفية."
+                            data-outline="
+        • أساسيات HTML, CSS, JS وبناء صفحات جذابة.
+        • التعامل مع REST APIs و JSON.
+        • Back-End (مثلاً ASP.NET / Node / Laravel حسب تنسيقك).
+        • قواعد البيانات، تصميم الجداول، العلاقات، والاستعلامات.
+        • مصادقة المستخدمين، الأدوار والصلاحيات (RBAC).
+        • رفع المشروع على سيرفر فعلي + أفضل ممارسات الإنتاج.
+    ">
+                        عرض محتوى الكورس
+                    </button>
+                </div>
+
+                <!-- AI Course -->
+                <div class="card-glass course-card reveal">
+                    <img src="Tumor-Classification.jpg" class="course-img" alt="AI">
+                    <h4>AI & Machine Learning</h4>
+                    <p>نماذج تصنيف، مشاريع طبية، تحليل بيانات، ونشر النماذج في بيئات حقيقية.</p>
+                    <div class="course-meta">
+                        <span><i class="bi bi-clock"></i> 25 ساعة</span>
+                        <span><i class="bi bi-bar-chart"></i> متوسط</span>
+                    </div>
+                    <div class="course-progress">
+                        <span>المحتوى الحالي</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <button class="btn-glow w-100 mt-2 course-details-btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#courseModal"
+                            data-title="AI & Machine Learning"
+                            data-level="متوسط"
+                            data-hours="25 ساعة تدريبية"
+                            data-description="تطبيق عملي على مشاريع حقيقية مثل تصنيف الأورام، تحليل البيانات، وبناء موديلات جاهزة للإستخدام."
+                            data-outline="
+        • مقدمة في AI, ML, Supervised vs Unsupervised.
+        • التعامل مع البيانات باستخدام Python, pandas, numpy.
+        • بناء نماذج تصنيف (Classification) وتحليل الأداء.
+        • مشروع Tumor Classification من البيانات حتى النشر.
+        • مقدمة في الشبكات العصبية باستخدام TensorFlow / Keras.
+        • نشر النموذج عبر واجهة ويب / API.
+    ">
+                        عرض محتوى الكورس
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container position-relative project-carousel">
+            <h2 class="section-title">مشاريع مختارة</h2>
+            <p class="section-subtitle">
+                أمثلة لمشاريع حقيقية في الذكاء الاصطناعي، الأتمتة، الأمن السيبراني، والأنظمة.
+            </p>
+
+            <div class="project-nav left">
+                <button id="scrollLeft" aria-label="Scroll left"><i class="bi bi-arrow-right"></i></button>
+            </div>
+            <div class="project-nav right">
+                <button id="scrollRight" aria-label="Scroll right"><i class="bi bi-arrow-left"></i></button>
+            </div>
+
+            <div class="scroll-wrapper mt-3">
+
+                <!-- Smart Home -->
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="smart-home.jpg" class="project-img" alt="Smart Home">
+                        <div class="project-overlay">لوحة تحكم ذكية للمنزل مع مراقبة للحساسات والطاقة.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-house-door-fill"></i> Smart Home IoT Platform</h5>
+                        <p>نظام متكامل للتحكم في الإضاءة، الأبواب، الحساسات، مع لوحة مراقبة ويب وتطبيق.</p>
+                        <ul class="mini-list">
+                            <li>Raspberry Pi + Sensors</li>
+                            <li>Web Dashboard حية</li>
+                            <li>تنبيهات أمنية لحظية</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tumor AI -->
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="Tumor-Classification.jpg" class="project-img" alt="AI Tumor Classification">
+                        <div class="project-overlay">نموذج ذكاء اصطناعي لدعم قرارات التشخيص الطبي.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-heart-pulse-fill"></i> AI Tumor Classification</h5>
+                        <p>نماذج تعلم عميق لتصنيف الأورام بدقة عالية مع واجهة تقارير تفاعلية.</p>
+                        <ul class="mini-list">
+                            <li>Convolutional Neural Networks</li>
+                            <li>Accuracy وصلت إلى ~99%</li>
+                            <li>لوحات متابعة للطبيب</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phone Farm -->
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="Phone-Farm.jpg" class="project-img" alt="Phone Farm Automation">
+                        <div class="project-overlay">إدارة أكثر من 1000 جهاز متنقل من لوحة واحدة.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-phone-fill"></i> Phone Farm Automation</h5>
+                        <p>منصة لإدارة ومراقبة مزارع الأجهزة مع سكربتات أتمتة وحماية.</p>
+                        <ul class="mini-list">
+                            <li>تحكم جماعي بالأجهزة</li>
+                            <li>Monitoring & Logging</li>
+                            <li>إستخدام حكومي وتجاري</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Web & Security Tools -->
+                <div class="card project-card">
+                    <div class="project-figure">
+                        <img src="Web-Tools.jpg" class="project-img" alt="Web Tools">
+                        <div class="project-overlay">مجموعة أدوات ويب وأمن سيبراني بواجهة موحدة.</div>
+                    </div>
+                    <div class="card-body text-end">
+                        <h5><i class="bi bi-window-stack"></i> Web & Security Tools Suite</h5>
+                        <p>لوحة تحكم مركزية لأدوات اختبار الأمن، تقارير، ومراقبة الخدمات.</p>
+                        <ul class="mini-list">
+                            <li>Authentication & RBAC</li>
+                            <li>Logging مركزي</li>
+                            <li>هياكل جاهزة للتوسع</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LAB -->
+    <section id="lab">
+        <div class="container">
+            <h2 class="section-title">المختبر التفاعلي</h2>
+            <p class="section-subtitle">
+                أدوات تعليمية سريعة لاختبار نفسك في لينكس، الشبكات، الأمن، والذكاء الاصطناعي.
+            </p>
+
+            <div class="lab-grid mt-4">
+                <!-- Quiz Terminal -->
+                <div class="terminal-window mx-auto reveal w-100" style="max-width: 900px; position:relative;">
+                    <div class="window-header d-flex align-items-center p-2">
+                        <span class="window-btn bg-danger me-2"></span>
+                        <span class="window-btn bg-warning me-2"></span>
+                        <span class="window-btn bg-success me-2"></span>
+                        <span class="text-white ms-auto" style="font-family: monospace;">Interactive Quiz Terminal</span>
+                    </div>
+                    <div class="p-3" id="quiz-terminal">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span id="quiz-category" class="badge text-bg-dark"></span>
+                            <small id="quiz-hint" class="text-muted"></small>
+                        </div>
+                        <div id="quiz-question" class="mb-3">Loading question...</div>
+                        <textarea id="quiz-answer" placeholder="اكتب الأمر أو الإجابة هنا..." class="w-100 mb-3" rows="3"></textarea>
+                        <div class="d-flex justify-content-end gap-2">
+                            <button class="btn btn-sm btn-primary" id="run-btn"><i class="bi bi-play-fill"></i> تنفيذ</button>
+                            <button class="btn btn-sm btn-secondary" disabled><i class="bi bi-bug-fill"></i> Debug</button>
+                            <button class="btn btn-sm btn-danger" disabled><i class="bi bi-x-lg"></i> Close</button>
+                        </div>
+                        <p id="quiz-feedback" class="mt-2 fs-5"></p>
+                    </div>
+                    <div id="falling-roses-container" style="position:absolute; inset:0; pointer-events:none;"></div>
+                    <audio id="correct-sound" src="correct.mp3"></audio>
+                    <audio id="wrong-sound" src="wrong.mp3"></audio>
+                    <audio id="pop-sound" src="pop.mp3" preload="auto"></audio>
+
+                </div>
+
+                <!-- Map / Clients -->
+                <div class="map-card reveal w-100">
+                    <h4 class="mb-2">بحث عن مواقع العملاء أو الشركات</h4>
+                    <p class="small text-muted">اكتب اسم مدينة، دولة، أو عنوان لمعاينة الموقع على الخريطة.</p>
+                    <input type="text" id="map-search" class="form-control mb-3" placeholder="مثال: Baghdad, Berlin, London...">
+                    <div class="map-frame-wrapper">
+                        <iframe id="map-frame" src="https://www.google.com/maps?q=Baghdad&output=embed" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG / CONTENT -->
+    <section id="blog">
+        <div class="container">
+            <h2 class="section-title">محتوى تعليمي ومقالات</h2>
+            <p class="section-subtitle">
+                مقالات، شروحات، وأفكار أشاركها من التجربة العملية في الشركات والمشاريع.
+            </p>
+
+            <div class="grid-3 mt-4">
+                <div class="card-glass blog-card reveal">
+                    <span class="blog-tag">Cybersecurity</span>
+                    <h5>كيف تبني مختبر أمن سيبراني في المنزل؟</h5>
+
+                    <!-- النص القصير (قبل hover) -->
+                    <p class="blog-preview">
+                        دليل عملي لاختيار الأجهزة، الشبكات، والبرمجيات اللازمة لبناء بيئة آمنة للتعلّم.
+                    </p>
+
+                    <!-- النص الكامل (يظهر عند الوقوف) -->
+                    <p class="blog-full">
+                        في هذا المقال أشرح خطوة بخطوة كيفية تجهيز بيئة تدريب متكاملة تشمل:
+                        إعداد الشبكات، اختيار الأجهزة المناسبة، تثبيت الأنظمة، تكوين بيئة افتراضية،
+                        لماذا تحتاج أكثر من جهاز، وكيف تبني سيناريوهات هجوم ودفاع بنفسك.
+                        <br><br>
+                        قريباً كملف PDF وفيديو كامل.
+                    </p>
+                </div>
+
+
+                <div class="card-glass blog-card reveal">
+                    <span class="blog-tag">Linux & Automation</span>
+                    <h5>سكربتات صغيرة تغيّر يومك في إدارة الأنظمة</h5>
+
+                    <p class="blog-preview">
+                        أمثلة حقيقية لأتمتة النسخ الاحتياطي، المراقبة، وإدارة الـ Logs على خوادم لينكس.
+                    </p>
+
+                    <p class="blog-full">
+                        ستتعلم كيفية كتابة سكربتات احترافية Bash:
+                        <br>• جمع logs تلقائياً
+                        <br>• مراقبة الخدمات المهمة
+                        <br>• إنشاء نسخ احتياطية ذكية
+                        <br>• التعامل مع Cron Jobs
+                        <br><br>
+                        سيتم نشر السكربتات كاملة على GitHub.
+                    </p>
+                </div>
+
+
+                <div class="card-glass blog-card reveal">
+                    <span class="blog-tag">AI & Data</span>
+                    <h5>من فكرة إلى نموذج: رحلة مشروع Tumor Classification</h5>
+
+                    <p class="blog-preview">
+                        شرح مبسط لكيفية تحويل فكرة طبية إلى نموذج AI مع واجهة استخدام حقيقية.
+                    </p>
+
+                    <p class="blog-full">
+                        نبدأ من تنظيف البيانات، تحليلها، إنشاء نموذج CNN، تدريب النموذج،
+                        تحسين الأداء، ثم تحويله إلى Web API وربطه بواجهة سهلة الاستخدام للطبيب.
+                        <br><br>
+                        يشمل روابط للكود والداتا الأصلية.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <p class="section-subtitle">
+                للتعاون في مشروع، تدريب فريقك، أو بناء نظام متكامل.
+            </p>
+
+            <div class="grid-3 mt-4">
+                <div class="contact-card reveal">
+                    <i class="bi bi-linkedin" style="font-size:1.6rem;"></i>
+                    <p class="mt-2">linkedin.com/in/haider22308</p>
+                    <a href="https://linkedin.com/in/haider22308" target="_blank" class="btn btn-outline-primary">LinkedIn</a>
+                </div>
+
+                <div class="contact-card reveal">
+                    <i class="bi bi-github" style="font-size:1.6rem;"></i>
+                    <p class="mt-2">github.com/Tetane0m</p>
+                    <a href="https://github.com/Tetane0m" target="_blank" class="btn btn-outline-light">GitHub</a>
+                </div>
+
+                <div class="contact-card reveal">
+                    <i class="bi bi-whatsapp" style="font-size:1.6rem;"></i>
+                    <p class="mt-2">+964-770-436-7549</p>
+                    <a href="https://wa.me/9647704367549" target="_blank" class="btn btn-outline-success">WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-3 flex-wrap gap-2">
+                <a href="mailto:haider2alatare@gmail.com" class="btn btn-outline-info"><i class="bi bi-envelope"></i> Email</a>
+                <a href="https://t.me/CellsForSell" target="_blank" class="btn btn-outline-info"><i class="bi bi-telegram"></i> Telegram</a>
+                <a href="https://www.instagram.com/hayder.codes?igsh=eTlpOWl0dWkyOXJ5" target="_blank" class="btn btn-outline-danger"><i class="bi bi-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Course Details Modal -->
+    <div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content" style="background:#05060a; color:#e8ecf2; border:1px solid rgba(255,255,255,0.12); border-radius:18px;">
+
+                <div class="modal-header border-0">
+                    <div>
+                        <h5 class="modal-title" id="courseModalLabel" style="font-weight:800;"></h5>
+                        <small id="courseMeta" style="color:#9aa7c2;"></small>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body pt-0">
+                    <p id="courseDescription" style="color:#c2cee6;"></p>
+                    <hr style="border-color:rgba(255,255,255,0.08);">
+                    <h6 class="mb-2">محتوى الكورس:</h6>
+                    <pre id="courseOutline" style="white-space:pre-wrap; font-family:inherit; color:#9aa7c2; background:rgba(255,255,255,0.02); padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.06);"></pre>
+                </div>
+
+                <div class="modal-footer d-flex flex-wrap justify-content-between gap-2 border-0">
+                    <div class="small" style="color:#9aa7c2;">
+                        جاهز تحجز مقعدك أو تستفسر عن التفاصيل؟
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="https://wa.me/9647704367549" target="_blank" class="btn btn-success btn-sm">
+                            <i class="bi bi-whatsapp"></i> واتساب مباشر
+                        </a>
+                        <a href="https://t.me/CellsForSell" target="_blank" class="btn btn-info btn-sm">
+                            <i class="bi bi-telegram"></i> تليغرام
+                        </a>
+                        <a href="mailto:haider2alatare@gmail.com?subject=استفسار عن كورس" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-envelope"></i> إيميل
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4">
+        <p>Made with <span style="color:#ff4d6d;">❤</span> by <strong>Hayder Sabah</strong></p>
+        <p>© <span id="year"></span> All Rights Reserved</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // =====================
+        // Typewriter effect
+        // =====================
+        const phrases = [
+            "مهندس نظم وشبكات يحب الحلول العملية",
+            "مطور ويب يبني تجارب غامرة وآمنة",
+            "Ethical Hacker يحوّل الثغرات إلى فرص تعلم",
+            "Full-Stack جاهز لتسليم منتجك القادم",
+            "Linux & Automation لبيئات مستقرة وسريعة"
+        ];
+
+        let phraseIndex = 0, charIndex = 0, deleting = false;
+        const typedText = document.getElementById("typed-text");
+
+        function type() {
+            if (!typedText) return;
+            const current = phrases[phraseIndex % phrases.length];
+
+            if (!deleting) {
+                typedText.textContent = current.slice(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === current.length) {
+                    deleting = true;
+                    setTimeout(type, 1200);
+                    return;
+                }
+            } else {
+                typedText.textContent = current.slice(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    deleting = false;
+                    phraseIndex++;
+                }
+            }
+            setTimeout(type, deleting ? 50 : 90);
+        }
+        type();
+
+        // =====================
+        // Theme toggle
+        // =====================
+        const themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                themeToggle.innerHTML = document.body.classList.contains("dark-mode")
+                    ? '<i class="bi bi-sun"></i>'
+                    : '<i class="bi bi-moon"></i>';
+            });
+        }
+
+        // =====================
+        // Footer year
+        // =====================
+        const yearSpan = document.getElementById("year");
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // =====================
+        // Map search debounce
+        // =====================
+        const searchInput = document.getElementById("map-search");
+        const mapFrame = document.getElementById("map-frame");
+        let typingTimer;
+
+        if (searchInput && mapFrame) {
+            searchInput.addEventListener("input", () => {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(() => {
+                    const query = searchInput.value.trim();
+                    if (query.length > 2) {
+                        mapFrame.src = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
+                    }
+                }, 600);
+            });
+        }
+
+        // =====================
+        // Interactive quiz data
+        // =====================
+        const quizQuestions = [
+            // Existing Questions ...(keep yours here)
+
+            // ---------------- Linux ----------------
+            { q: "Show hidden files", a: "ls -a", category: "Linux", hint: "الملفات التي تبدأ بنقطة", explain: "ls -a يعرض جميع الملفات المخفية والظاهرية داخل المجلد." },
+            { q: "Create new directory test", a: "mkdir test", category: "Linux", hint: "إنشاء مجلد", explain: "mkdir يستخدم لإنشاء مجلد جديد باسم تختاره." },
+            { q: "View file content page by page", a: "less file.txt", category: "Linux", hint: "عرض تدريجي", explain: "less مفيد للملفات الكبيرة لأنك تنتقل سطر بسطر." },
+            { q: "Copy file1 to file2", a: "cp file1 file2", category: "Linux", hint: "نسخ الملفات", explain: "cp ينسخ ملف أو مجلد إلى موقع أو اسم جديد." },
+            { q: "Move file1 to folder", a: "mv file1 folder/", category: "Linux", hint: "نقل/إعادة تسمية", explain: "mv لنقل الملفات أو إعادة تسميتها." },
+            { q: "Delete file test.txt", a: "rm test.txt", category: "Linux", hint: "حذف ملف", explain: "rm يحذف الملفات بشكل نهائي بدون سلة مهملات." },
+            { q: "Search command history", a: "history", category: "Linux", hint: "الأوامر السابقة", explain: "history يظهر لك كل الأوامر التي نفذتها في الجلسة." },
+            { q: "Check system uptime", a: "uptime", category: "Linux", hint: "مدة التشغيل", explain: "يعرض مدة تشغيل النظام منذ آخر إعادة تشغيل." },
+            { q: "Show memory usage", a: "free -h", category: "Linux", hint: "RAM", explain: "free -h يعطيك لمحة مبسطة عن استهلاك الذاكرة." },
+            { q: "Switch to root user", a: "sudo su", category: "Linux", hint: "امتيازات أعلى", explain: "sudo su يمنحك صلاحيات root بإذن." },
+
+            // ---------------- Networking ----------------
+            { q: "Check network interface info", a: "ifconfig", category: "Networking", hint: "المنافذ الشبكية", explain: "يعرض تفاصيل عناوين IP وبطاقات الشبكة." },
+            { q: "Ping google.com", a: "ping google.com", category: "Networking", hint: "تحقق الاتصال", explain: "ping يقيس زمن الوصول ويؤكد توفر الموقع." },
+            { q: "Show ARP table", a: "arp -a", category: "Networking", hint: "عناوين MAC", explain: "ARP يكشف الأجهزة المخزنة في جدول الشبكة." },
+            { q: "Show routing table", a: "route -n", category: "Networking", hint: "مسارات الشبكة", explain: "لتحديد كيف يرسل النظام الحزم." },
+            { q: "Enable interface eth0", a: "ifconfig eth0 up", category: "Networking", hint: "تفعيل المنفذ", explain: "يرفع واجهة الشبكة للعمل." },
+            { q: "SSH into server at 192.168.1.10", a: "ssh user@192.168.1.10", category: "Networking", hint: "اتصال بعيد", explain: "SSH يستخدم للتحكم عن بعد بالخوادم." },
+
+            // ---------------- Security ----------------
+            { q: "Check firewall status", a: "ufw status", category: "Security", hint: "جدار الحماية", explain: "لعرض المنافذ المسموح بها والمقفلة." },
+            { q: "Allow port 80 through firewall", a: "ufw allow 80", category: "Security", hint: "HTTP", explain: "فتح منفذ لخادم ويب أو خدمة معينة." },
+            { q: "Generate random password", a: "openssl rand -base64 16", category: "Security", hint: "16 بايت", explain: "إنتاج كلمات مرور معقدة آمنة." },
+            { q: "Scan open ports on host", a: "nmap target-ip", category: "Security", hint: "Nmap", explain: "أداة فحص شبكي قوي لمعرفة المنافذ والخدمات." },
+            { q: "Hash a string with SHA256", a: "echo -n 'text' | sha256sum", category: "Security", hint: "تجزئة مشفرة", explain: "تستخدم للتحقق من سلامة البيانات." },
+            { q: "Enable HTTPS on nginx", a: "ssl_certificate configuration", category: "Security", hint: "TLS", explain: "تضيف شهادة SSL لحماية الاتصال." },
+
+            // ---------------- Web Development ----------------
+            { q: "Center a div in CSS", a: "margin: auto;", category: "Web", hint: "CSS", explain: "يستخدم لتوسيط العناصر أفقياً." },
+            { q: "Fetch API GET request", a: "fetch('/api/data')", category: "Web", hint: "JavaScript", explain: "fetch تستدعي بيانات من خادم." },
+            { q: "Make responsive layout", a: "@media query", category: "Web", hint: "ملائمة الشاشات", explain: "media مهم لتناسب التصميم أحجام الأجهزة." },
+            { q: "Prevent SQL Injection", a: "prepared statements", category: "Web", hint: "حماية قواعد البيانات", explain: "Prepared statements تمنع تنفيذ كود المستخدم مباشرة." },
+            { q: "Install Node.js package Express", a: "npm install express", category: "Web", hint: "خادم Node", explain: "Express إطار ويب خفيف وسريع." },
+            { q: "Start local web server python", a: "python3 -m http.server", category: "Web", hint: "تشغيل محلي", explain: "يسمح باستعراض الملفات من المتصفح محلياً." },
+
+            // ---------------- AI & Machine Learning ----------------
+            { q: "Import pandas", a: "import pandas as pd", category: "AI/ML", hint: "تحليل بيانات", explain: "pandas مكتبة شهيرة للجداول ومعالجة البيانات." },
+            { q: "Load CSV file using pandas", a: "pd.read_csv('file.csv')", category: "AI/ML", hint: "قراءة بيانات", explain: "قراءة ملفات CSV واستخدامها في النمذجة." },
+            { q: "Split dataset to train/test", a: "train_test_split", category: "AI/ML", hint: "تقييم النموذج", explain: "يفصل البيانات للتدريب والاختبار." },
+            { q: "Plot graph using matplotlib", a: "plt.plot()", category: "AI/ML", hint: "تصوير بيانات", explain: "matplotlib لتخطيط نقاط، خطوط، رسوم." },
+            { q: "Normalize dataset", a: "StandardScaler()", category: "AI/ML", hint: "توحيد القيم", explain: "تسوية البيانات يحسن أداء بعض الخوارزميات." },
+            { q: "Import tensorflow", a: "import tensorflow as tf", category: "AI/ML", hint: "شبكات عصبية", explain: "TensorFlow لبناء وتدريب نماذج AI." },
+
+            // ---------------- Databases ----------------
+            { q: "Show databases in MySQL", a: "SHOW DATABASES;", category: "Database", hint: "قواعد MySQL", explain: "عرض جميع قواعد البيانات." },
+            { q: "Select all table rows", a: "SELECT * FROM table;", category: "Database", hint: "SQL", explain: "استرجاع كل البيانات من جدول." },
+            { q: "Insert new row", a: "INSERT INTO table VALUES (...)", category: "Database", hint: "إضافة بيانات", explain: "إضافة سجل جديد في قاعدة البيانات." },
+            { q: "Update row value", a: "UPDATE table SET x=1", category: "Database", hint: "تعديل", explain: "تحديث قيم الأعمدة داخل السجلات." },
+            { q: "Delete row", a: "DELETE FROM table WHERE id=1", category: "Database", hint: "حذف", explain: "إزالة سجل محدد من الجدول." },
+            { q: "Backup database", a: "mysqldump dbname > backup.sql", category: "Database", hint: "نسخة احتياطية", explain: "حفظ نسخة من قاعدة البيانات." },
+
+            // ---------------- Python Programming ----------------
+            { q: "Create a list in Python", a: "mylist = []", category: "Programming", hint: "قوائم بايثون", explain: "أساس تخزين متعدد داخل المتغير." },
+            { q: "Define a function", a: "def myfunc():", category: "Programming", hint: "Functions", explain: "الدوال تسهل إعادة استخدام الشيفرة." },
+            { q: "Loop through list", a: "for x in list:", category: "Programming", hint: "تكرار", explain: "تستخدم for لقراءة عناصر القائمة." },
+            { q: "Create virtual environment", a: "python -m venv env", category: "Programming", hint: "VENV", explain: "يعزل مكتبات المشروع عن النظام." },
+            { q: "Install library using pip", a: "pip install library", category: "Programming", hint: "إدارة مكتبات", explain: "pip هو مدير الحزم الرسمي لبايثون." },
+            { q: "Print in Python", a: "print('Hello')", category: "Programming", hint: "أساسيات", explain: "أول خطوة للتعامل مع اللغة." }
+        ];
+
+
+        let currentQuiz = {};
+        const quizQuestion = document.getElementById("quiz-question");
+        const quizAnswer = document.getElementById("quiz-answer");
+        const quizFeedback = document.getElementById("quiz-feedback");
+        const quizCategory = document.getElementById("quiz-category");
+        const quizHint = document.getElementById("quiz-hint");
+        const correctSound = document.getElementById("correct-sound");
+        const wrongSound = document.getElementById("wrong-sound");
+        const rosesContainer = document.getElementById("falling-roses-container");
+
+        function loadQuiz() {
+            if (!quizQuestion || !quizCategory || !quizHint || !quizAnswer || !quizFeedback) return;
+            currentQuiz = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
+            quizQuestion.textContent = currentQuiz.q;
+            quizCategory.textContent = currentQuiz.category;
+            quizHint.textContent = currentQuiz.hint;
+            quizAnswer.value = "";
+            quizFeedback.textContent = "";
+            if (rosesContainer) rosesContainer.innerHTML = "";
+        }
+        loadQuiz();
+
+        function createRose(x) {
+            if (!rosesContainer) return;
+            const rose = document.createElement("div");
+            rose.textContent = "🌹";
+            rose.style.position = "absolute";
+            rose.style.left = x + "px";
+            rose.style.top = "-40px";
+            rose.style.fontSize = (Math.random() * 30 + 20) + "px";
+            rose.style.animation = "fall-rose " + (Math.random() * 2 + 2) + "s linear forwards";
+            rosesContainer.appendChild(rose);
+            setTimeout(() => rose.remove(), 4000);
+        }
+
+        const runBtn = document.getElementById("run-btn");
+        if (runBtn && quizAnswer && quizFeedback) {
+            runBtn.addEventListener("click", () => {
+                const ans = quizAnswer.value.trim().toLowerCase();
+                if (!currentQuiz || !currentQuiz.a) return;
+
+                if (ans === currentQuiz.a.toLowerCase()) {
+                    quizFeedback.textContent = `إجابة صحيحة! 🎉 ${currentQuiz.explain}`;
+                    quizFeedback.style.color = "#00e676";
+                    if (correctSound) correctSound.play();
+                    for (let i = 0; i < 20; i++) createRose(Math.random() * 800);
+                } else {
+                    quizFeedback.textContent = `إجابة غير دقيقة ❌ — الحل: ${currentQuiz.a} → ${currentQuiz.explain}`;
+                    quizFeedback.style.color = "#ff6b6b";
+                    if (wrongSound) wrongSound.play();
+                }
+                setTimeout(loadQuiz, 2500);
+            });
+
+            quizAnswer.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    runBtn.click();
+                }
+            });
+        }
+
+        // =====================
+        // Project carousel drag + buttons
+        // =====================
+        const scrollContainer = document.querySelector('.scroll-wrapper');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+
+        if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: -820, behavior: 'smooth' });
+            });
+            scrollRightBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: 820, behavior: 'smooth' });
+            });
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            scrollContainer.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - scrollContainer.offsetLeft;
+                scrollLeft = scrollContainer.scrollLeft;
+            });
+            scrollContainer.addEventListener('mouseleave', () => { isDown = false; });
+            scrollContainer.addEventListener('mouseup', () => { isDown = false; });
+            scrollContainer.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - scrollContainer.offsetLeft;
+                const walk = (x - startX);
+                scrollContainer.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // =====================
+        // Reveal on scroll
+        // =====================
+        const revealElements = document.querySelectorAll(".reveal, .reveal-delay");
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            revealElements.forEach(el => observer.observe(el));
+        } else {
+            // Fallback
+            revealElements.forEach(el => el.classList.add("visible"));
+        }
+
+
+        // =====================
+        // Course modal dynamic content
+        // =====================
+        const courseButtons = document.querySelectorAll('.course-details-btn');
+        const courseModalTitle = document.getElementById('courseModalLabel');
+        const courseMeta = document.getElementById('courseMeta');
+        const courseDescription = document.getElementById('courseDescription');
+        const courseOutline = document.getElementById('courseOutline');
+
+        courseButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const title = btn.getAttribute('data-title') || '';
+                const level = btn.getAttribute('data-level') || '';
+                const hours = btn.getAttribute('data-hours') || '';
+                const desc = btn.getAttribute('data-description') || '';
+                const outline = btn.getAttribute('data-outline') || '';
+
+                if (courseModalTitle) courseModalTitle.textContent = title;
+                if (courseMeta) courseMeta.textContent = `${level} • ${hours}`;
+                if (courseDescription) courseDescription.textContent = desc;
+                if (courseOutline) courseOutline.textContent = outline;
+            });
+        });
+
+
+
+        let score = 0;
+
+        function spawnFallingItem() {
+            const item = document.createElement("div");
+            item.classList.add("falling-item");
+
+            // رموز عشوائية لطيفة
+            const symbols = ["🍁", "🌸", "⭐", "💠", "💎", "❄️", "🔥", "⚡", "🧊"];
+            item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+            // حجم عشوائي
+            const size = Math.random() * 25 + 25;
+            item.style.fontSize = size + "px";
+
+            // موقع أفقي عشوائي
+            item.style.left = Math.random() * (window.innerWidth - 50) + "px";
+
+            // نقطة بداية تعتمد على scroll
+            item.style.top = (window.scrollY - 60) + "px";
+
+            // سرعة عشوائية
+            const fallDuration = Math.random() * 6 + 4;  // بين 4 و 10 ثواني
+            item.style.transition = `transform ${fallDuration}s linear, top ${fallDuration}s linear`;
+
+            // زاوية Random Rotate
+            const rotate = Math.random() * 40 - 20;
+
+            document.body.appendChild(item);
+
+            // بعد لحظة، يبدأ بالسقوط + انحراف يسار/يمين
+            setTimeout(() => {
+                const horizontalDrift = Math.random() * 200 - 100; // يمين ويسار
+                item.style.top = (window.scrollY + window.innerHeight + 150) + "px";
+                item.style.transform = `translateX(${horizontalDrift}px) rotate(${rotate}deg)`;
+            }, 50);
+
+            // عند الضغط
+            item.addEventListener("click", (event) => {
+                playPopSound();
+                item.remove();
+
+                showPlusOne(event.pageX, event.pageY);
+
+                increaseScore();
+            });
+
+
+
+            // يمسح نفسه عند انتهاء السقوط
+            setTimeout(() => item.remove(), fallDuration * 1000);
+        }
+
+        // +1 Animation
+        function showPlusOne(x, y) {
+            const plus = document.createElement("div");
+            plus.classList.add("plus-one");
+
+            // القيمة النهائية (ظهور فوق الإصبع مباشرة)
+            plus.style.left = x - 10 + "px";
+            plus.style.top = y - 20 + "px";
+
+            plus.textContent = "+1";
+            document.body.appendChild(plus);
+
+            setTimeout(() => plus.remove(), 1000);
+        }
+
+
+        function increaseScore() {
+            score++;
+            document.getElementById("score").textContent = score;
+        }
+
+        // تشغيل صوت
+        function playPopSound() {
+            const s = document.getElementById("pop-sound");
+            s.currentTime = 0;
+            s.play();
+        }
+
+        // يولد عنصر كل وقت عشوائي بين 2 – 6 ثواني
+        function randomSpawn() {
+            spawnFallingItem();
+            setTimeout(randomSpawn, Math.random() * 4000 + 2000);
+        }
+
+        randomSpawn();
+
+        document.addEventListener("mousemove", function (e) {
+            const dot = document.createElement("div");
+            dot.classList.add("cursor-trail");
+
+            // مكان النقطة
+            dot.style.left = e.pageX - 7 + "px";
+            dot.style.top = e.pageY - 7 + "px";
+
+            // ألوان عشوائية كل مرة؟ (اختياري)
+            const colors = ["#7ef0c1", "#6f8dff", "#ff6b6b", "#ffd93d", "#9d4edd"];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            dot.style.background = `radial-gradient(circle, ${color}, transparent)`;
+            dot.style.boxShadow = `0 0 20px ${color}`;
+
+            document.body.appendChild(dot);
+
+            setTimeout(() => dot.remove(), 700);
+        });
+
+    </script>
+</body>
+</html>
