@@ -2066,20 +2066,22 @@
         document.addEventListener("mousemove", function (e) {
             const dot = document.createElement("div");
             dot.classList.add("cursor-trail");
-
-            // مكان النقطة
-            dot.style.left = e.pageX - 7 + "px";
-            dot.style.top = e.pageY - 7 + "px";
-
-            // ألوان عشوائية كل مرة؟ (اختياري)
+        
+            // الحل هنا: استخدام clientX و clientY بدلاً من pageX و pageY
+            dot.style.left = e.clientX - 7 + "px";
+            dot.style.top = e.clientY - 7 + "px";
+        
+            // اختيار لون عشوائي كما هو في كودك الحالي
             const colors = ["#7ef0c1", "#6f8dff", "#ff6b6b", "#ffd93d", "#9d4edd"];
             const color = colors[Math.floor(Math.random() * colors.length)];
-            dot.style.background = `radial-gradient(circle, ${color}, transparent)`;
-            dot.style.boxShadow = `0 0 20px ${color}`;
-
+            dot.style.background = color;
+        
             document.body.appendChild(dot);
-
-            setTimeout(() => dot.remove(), 700);
+        
+            // حذف العنصر بعد انتهاء الأنميشن
+            setTimeout(() => {
+                dot.remove();
+            }, 700); 
         });
 
     </script>
